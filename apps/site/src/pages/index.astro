@@ -2,7 +2,11 @@
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 import { getCollection } from 'astro:content';
-const allBlogPosts = await getCollection('blog');
+
+// Maybe there's a better way in Astro to sort the posts by date?
+const frontPagePosts = (await getCollection('blog'))
+	.sort((post1, post2) => Date.parse(post2.data.date) - Date.parse(post1.data.date)).slice(0, 4)
+
 ---
 
 <Layout title="Just Some Dev - Homepage">
@@ -10,9 +14,7 @@ const allBlogPosts = await getCollection('blog');
     <h1>Well <span class="text-gradient">hello</span> there</h1>
     <ul role="list" class="link-card-grid">
       {
-        allBlogPosts
-          ?.slice(0, 4)
-          .map((post) => (
+        frontPagePosts.map((post) => (
             <Card
               href={`/blog/${post.slug}`}
               title={post.data.title}
