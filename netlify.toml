@@ -1,0 +1,4 @@
+# example netlify.toml
+[build]
+  command = "nx run site:build"
+  publish = "dist/apps/site"

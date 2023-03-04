@@ -39,3 +39,6 @@ testem.log
 Thumbs.db
 
 .astro
+
+# Local Netlify folder
+.netlify
