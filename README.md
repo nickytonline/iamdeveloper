@@ -1,4 +1,6 @@
-# Iamdeveloper
+# iamdeveloper.com properties (beta)
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/883b15c9-7470-4c01-b193-8dc61c7d8879/deploy-status)](https://app.netlify.com/sites/iamdeveloper-dot-com-beta/deploys)
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 
