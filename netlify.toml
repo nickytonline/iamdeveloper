@@ -2,3 +2,7 @@
 [build]
   command = "nx run site:build"
   publish = "dist/apps/site"
+
+[dev]
+  command = "nx run site:dev"
+  targetPort = 3000
