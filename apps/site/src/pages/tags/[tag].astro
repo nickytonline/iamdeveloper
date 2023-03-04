@@ -2,13 +2,18 @@
 import { CollectionEntry, getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
-  const allPosts = await getCollection('blog');
-  const uniqueTags = [
-    ...new Set(allPosts.map((post) => post.data.tags).flat()),
-  ];
+  const allPosts = (
+    await Promise.all([
+      getCollection('blog'),
+      getCollection('vscodetips'),
+      getCollection('newsletter'),
+    ])
+  ).flat();
+  const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
 
-  return uniqueTags.map((tag) => {
+  return tags.map((tag) => {
     const posts = allPosts
+      // @ts-ignore TODO: Fix type for for when the tags only explicitly include 'newsletter'
       .filter((post) => post.data.tags.includes(tag))
       .sort(
         (post1, post2) =>
@@ -22,7 +27,8 @@ export async function getStaticPaths() {
 }
 
 // I shouldn't need to explicity type entry. Look into this.
-const posts: CollectionEntry<'blog'>[] = Astro.props.posts;
+const posts: CollectionEntry<'blog' | 'newsletter' | 'vscodetips'>[] =
+  Astro.props.posts;
 const { tag } = Astro.params;
 ---
 

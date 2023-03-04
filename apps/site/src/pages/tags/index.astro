@@ -1,8 +1,19 @@
 ---
 import { getCollection } from 'astro:content';
 
-const allPosts = await getCollection('blog');
-const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
+const allPosts = await Promise.all([
+  getCollection('blog'),
+  getCollection('vscodetips'),
+  getCollection('newsletter'),
+]);
+const tags = [
+  ...new Set(
+    allPosts
+      .flat()
+      .map((post) => post.data.tags)
+      .flat()
+  ),
+];
 ---
 
 <h1>Tags</h1>
