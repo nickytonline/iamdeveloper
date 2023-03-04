@@ -5,8 +5,10 @@ import { getCollection } from 'astro:content';
 
 // Maybe there's a better way in Astro to sort the posts by date?
 const frontPagePosts = (await getCollection('blog'))
-	.sort((post1, post2) => Date.parse(post2.data.date) - Date.parse(post1.data.date)).slice(0, 4)
-
+  .sort(
+    (post1, post2) => Date.parse(post2.data.date) - Date.parse(post1.data.date)
+  )
+  .slice(0, 4);
 ---
 
 <Layout title="Just Some Dev - Homepage">
@@ -15,14 +17,15 @@ const frontPagePosts = (await getCollection('blog'))
     <ul role="list" class="link-card-grid">
       {
         frontPagePosts.map((post) => (
-            <Card
-              href={`/blog/${post.slug}`}
-              title={post.data.title}
-              body={post.data.excerpt}
-            />
-          ))
+          <Card
+            href={`/blog/${post.slug}`}
+            title={post.data.title}
+            body={post.data.excerpt}
+          />
+        ))
       }
     </ul>
+    <a href="/blog">See all posts</a>
   </main>
 </Layout>
 
