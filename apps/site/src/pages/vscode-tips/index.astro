@@ -1,0 +1,79 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Card from '../../components/Card.astro';
+import { getCollection } from 'astro:content';
+
+// Maybe there's a better way in Astro to sort the posts by date?
+const frontPagePosts = (await getCollection('vscodetips')).sort(
+  (post1, post2) => Date.parse(post2.data.date) - Date.parse(post1.data.date)
+);
+---
+
+<Layout title="Just Some Dev - Homepage">
+  <main>
+    <h1>Well <span class="text-gradient">hello</span> there</h1>
+    <ul role="list" class="link-card-grid">
+      {
+        frontPagePosts.map((post) => (
+          <Card
+            href={`/vscode-tips/${post.slug}`}
+            title={post.data.title}
+            body={post.data.excerpt}
+          />
+        ))
+      }
+    </ul>
+    <a href="/vscode-tips">See all posts</a>
+  </main>
+</Layout>
+
+<style>
+  main {
+    margin: auto;
+    padding: 1.5rem;
+    max-width: 60ch;
+  }
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0;
+  }
+
+  .text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+  }
+
+  .instructions {
+    line-height: 1.6;
+    margin: 1rem 0;
+    border: 1px solid rgba(var(--accent), 25%);
+    background-color: white;
+    padding: 1rem;
+    border-radius: 0.4rem;
+  }
+
+  .instructions code {
+    font-size: 0.875em;
+    font-weight: bold;
+    background: rgba(var(--accent), 12%);
+    color: rgb(var(--accent));
+    border-radius: 4px;
+    padding: 0.3em 0.45em;
+  }
+
+  .instructions strong {
+    color: rgb(var(--accent));
+  }
+
+  .link-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+    gap: 1rem;
+    padding: 0;
+  }
+</style>
