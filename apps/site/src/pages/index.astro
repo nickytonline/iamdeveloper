@@ -14,6 +14,8 @@ const frontPagePosts = (await getCollection('blog'))
 <Layout title="Just Some Dev - Homepage">
   <main>
     <h1>Well <span class="text-gradient">hello</span> there</h1>
+    <!-- replace-with-stream-guest -->
+    <h2>Latest Posts</h2>
     <ul role="list" class="link-card-grid">
       {
         frontPagePosts.map((post) => (
