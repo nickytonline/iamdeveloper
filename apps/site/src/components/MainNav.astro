@@ -1,0 +1,23 @@
+---
+import type { NavItem } from '../data/navigationItems';
+
+export interface Props {
+  navItems: NavItem[];
+}
+
+const { navItems } = Astro.props as Props;
+---
+
+<nav aria-label="Main site navigation">
+  <ul>
+    {
+      navItems.map((navItem) => {
+        return (
+          <li>
+            <a href={navItem.url}>{navItem.text}</a>
+          </li>
+        );
+      })
+    }
+  </ul>
+</nav>
