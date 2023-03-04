@@ -1,0 +1,49 @@
+{
+  "plugins": [
+    "@nxtensions/astro"
+  ],
+  "npmScope": "iamdeveloper",
+  "namedInputs": {
+    "default": [
+      "{projectRoot}/**/*",
+      "sharedGlobals"
+    ],
+    "production": [
+      "default"
+    ],
+    "sharedGlobals": []
+  },
+  "targetDefaults": {
+    "build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "inputs": [
+        "production",
+        "^production"
+      ]
+    },
+    "check": {
+      "inputs": [
+        "production",
+        "^production"
+      ]
+    }
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/nx-cloud",
+      "options": {
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e",
+          "check"
+        ],
+        "accessToken": "MGRiNDFhMTEtMzQwMS00ODdmLThiZjMtNzI3MzAxZmFlN2Q3fHJlYWQtd3JpdGU="
+      }
+    }
+  },
+  "defaultProject": "site"
+}

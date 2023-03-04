@@ -1,0 +1,19 @@
+{
+  "name": "iamdeveloper",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "postinstall": "node ./tools/scripts/patch-nx-cli.js"
+  },
+  "private": true,
+  "dependencies": {
+    "@nxtensions/astro": "3.3.0"
+  },
+  "devDependencies": {
+    "@nrwl/nx-cloud": "latest",
+    "@nrwl/workspace": "15.8.4",
+    "astro": "^2.0.0",
+    "nx": "15.8.4",
+    "prettier": "^2.6.2"
+  }
+}
