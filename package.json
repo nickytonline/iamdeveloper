@@ -8,7 +8,8 @@
   "private": true,
   "dependencies": {
     "@astrojs/mdx": "^0.17.2",
-    "@nxtensions/astro": "3.3.0"
+    "@nxtensions/astro": "3.3.0",
+    "rss-parser": "^3.12.0"
   },
   "devDependencies": {
     "@nrwl/nx-cloud": "latest",
