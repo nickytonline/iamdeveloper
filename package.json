@@ -10,6 +10,7 @@
     "@astrojs/mdx": "^0.17.2",
     "@astrojs/netlify": "^2.1.3",
     "@astrojs/rss": "^2.1.1",
+    "@astrojs/sitemap": "^1.1.0",
     "@nxtensions/astro": "3.3.0",
     "rss-parser": "^3.12.0"
   },
