@@ -1,0 +1,39 @@
+.intro {
+  background: var(--color-theme-highlight-block);
+
+  @media screen and (min-width: 1180px) {
+    background-image: url(https://res.cloudinary.com/nickytonline/image/upload/c_scale,h_200,w_200/v1653353570/alpaca-icon_r9sskj.png);
+    background-position-y: bottom;
+    background-repeat: no-repeat;
+  }
+  @include stephify;
+
+  &__summary {
+    --flow-space: #{get-size(500)};
+    font-size: get-size(500);
+
+    a:not([class]) {
+      color: currentColor;
+      position: relative;
+      display: inline-block;
+      text-underline-offset: 0.2em;
+      text-decoration: underline;
+      word-break: break-word;
+
+      @include apply-utility('leading', 'tight');
+
+      &:hover {
+        text-decoration-style: wavy;
+      }
+    }
+  }
+
+  &__heading {
+    max-width: 40ex;
+    color: var(--color-theme-feature-text);
+
+    &--compact {
+      max-width: 20ex;
+    }
+  }
+}

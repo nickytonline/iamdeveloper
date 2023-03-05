@@ -1,0 +1,115 @@
+@import 'config';
+
+// TODO: Fix the node_modules reference to get it working from root of project's noed_modules
+// Pull in the stalfos lib
+@import '../../../../node_modules/stalfos/stalfos.scss';
+
+// Local mixins
+@import 'mixins/dark-mode';
+@import 'mixins/stephify';
+
+@import 'theme';
+
+// Local dependencies
+@import 'typography';
+
+/**
+ * GLOBAL STYLES
+ */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  scroll-behavior: smooth;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+  &:focus {
+    outline: none;
+  }
+}
+
+hr {
+  display: block;
+  height: 1px;
+  max-width: 500px;
+  background: var(--color-stroke);
+  border: none;
+  margin: get-size(900) auto;
+}
+
+// For when metric attributes are added to img elements
+img {
+  height: auto;
+}
+
+:focus {
+  outline: 1px solid var(--color-theme-primary-glare);
+  outline-offset: 0.25rem;
+}
+
+[id] {
+  margin-scroll-top: 2ex;
+}
+
+/**
+ * PROJECT IMPORTS
+ */
+
+// Utils
+@import 'utilities/inner-wrapper';
+@import 'utilities/visually-hidden';
+@import 'utilities/wrapper';
+
+// Components
+@import 'components/button';
+@import 'components/form';
+@import 'components/heading-permalink';
+@import 'components/intro';
+@import 'components/nav';
+@import 'components/pagination';
+@import 'components/post';
+@import 'components/post-list';
+@import 'components/site-head';
+@import 'components/site-foot';
+@import 'components/skip-link';
+@import 'components/syntax-highlighting';
+@import 'components/video-player';
+
+.theme-toggle .button {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  border-radius: 50%;
+}
+
+.video-panel {
+  display: flex;
+  gap: 3.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .video-thumbnail {
+    max-width: 360px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    place-items: center;
+    text-align: center;
+    line-height: 1.25;
+    font-size: 0.8em;
+
+    img {
+      border-radius: 0.5rem;
+    }
+  }
+}
+
+.float-left {
+  float: left;
+}
