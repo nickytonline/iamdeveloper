@@ -1,0 +1,15 @@
+---
+import type { NavItem } from '../data/navigationItems';
+import { socials } from '../data/socials';
+import MainNav from './MainNav.astro';
+
+export interface Props {
+  navItems: NavItem[];
+}
+
+const { navItems } = Astro.props as Props;
+---
+
+<header>
+  <MainNav navItems={navItems} socials={socials} />
+</header>

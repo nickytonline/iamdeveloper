@@ -1,23 +1,43 @@
 ---
 import type { NavItem } from '../data/navigationItems';
+import type { SocialLink } from '../data/socials';
 
 export interface Props {
   navItems: NavItem[];
+  socials: SocialLink[];
 }
 
-const { navItems } = Astro.props as Props;
+const { navItems, socials } = Astro.props as Props;
 ---
 
-<nav aria-label="Main site navigation">
-  <ul>
-    {
-      navItems.map((navItem) => {
-        return (
-          <li>
-            <a href={navItem.url}>{navItem.text}</a>
-          </li>
-        );
-      })
-    }
-  </ul>
-</nav>
+<div class="box-flex flex-wrap gap-base">
+  <nav class="nav" aria-label="Site main navigation">
+    <ul class="nav__list box-flex flex-wrap">
+      {
+        navItems.map((navItem) => {
+          return (
+            <li class="nav__item">
+              <a href={navItem.url}>{navItem.text}</a>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </nav>
+  <nav aria-label="Social links">
+    <ul>
+      {
+        socials.map((item) => {
+          return (
+            <li class="nav__item">
+              <a href={item.url} rel="me" title={item.text}>
+                <span class="visually-hidden">{item.text}</span>
+                <Fragment set:html={item.icon} />
+              </a>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </nav>
+</div>

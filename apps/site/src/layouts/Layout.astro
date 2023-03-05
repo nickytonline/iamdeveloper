@@ -1,6 +1,7 @@
 ---
 import MainNav from '../components/MainNav.astro';
 import { navItems } from '../data/navigationItems';
+import { socials } from '../data/socials';
 
 export interface Props {
   title: string;
@@ -21,7 +22,7 @@ const { title } = Astro.props;
 
   <body>
     <header>
-      <MainNav navItems={navItems} />
+      <MainNav navItems={navItems} socials={socials} />
     </header>
     <slot />
   </body>
