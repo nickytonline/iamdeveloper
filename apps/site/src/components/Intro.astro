@@ -1,10 +1,9 @@
 ---
 export interface Props {
   heading: string;
-  summary?: string;
 }
 
-const { heading, summary } = Astro.props;
+const { heading } = Astro.props;
 ---
 
 <header class="intro pad-top-900 pad-bottom-max">
@@ -17,13 +16,9 @@ const { heading, summary } = Astro.props;
     <div class="box-flex gap-base flex-wrap">
       <!-- TODO: boostLink title, page.fileSlug, page.url, canonicalUrl -->
     </div>
-    {
-      summary && (
-        <div
-          class="intro__summary sf-flow leading-mid measure-short"
-          set:html={summary}
-        />
-      )
-    }
+
+    <div class="intro__summary sf-flow leading-mid measure-short">
+      <slot />
+    </div>
   </div>
 </header>
