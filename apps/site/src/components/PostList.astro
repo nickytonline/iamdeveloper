@@ -1,0 +1,39 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import DateTime from './DateTime.astro';
+
+export interface Props {
+  title: string;
+  posts: CollectionEntry<'blog'>[];
+}
+
+const { title, posts } = Astro.props;
+---
+
+<section class="post-list pad-top-700 gap-bottom-900">
+  <div class="inner-wrapper sf-flow">
+    <h2 class="post-list__heading text-700 md:text-800">{title}</h2>
+    <ol class="post-list__items sf-flow pad-top-300" reversed>
+      {
+        posts.map((item) => {
+          return (
+            <li class="post-list__item">
+              <h3 class="font-base leading-tight text-600 weight-mid">
+                <a
+                  href={`/blog/${item.slug}`}
+                  class="post-list__link"
+                  rel="bookmark"
+                >
+                  {item.data.title}
+                </a>
+              </h3>
+              <p class="text-500 gap-top-300 weight-mid">
+                <DateTime date={new Date(item.data.date)} />
+              </p>
+            </li>
+          );
+        })
+      }
+    </ol>
+  </div>
+</section>

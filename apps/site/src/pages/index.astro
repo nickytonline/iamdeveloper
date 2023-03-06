@@ -1,6 +1,7 @@
 ---
+import Intro from '../components/Intro.astro';
+import PostList from '../components/PostList.astro';
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
 import { getCollection } from 'astro:content';
 
 // Maybe there's a better way in Astro to sort the posts by date?
@@ -12,72 +13,16 @@ const frontPagePosts = (await getCollection('blog'))
 ---
 
 <Layout title="Just Some Dev - Homepage">
-  <main>
-    <h1>Well <span class="text-gradient">hello</span> there</h1>
-    <!-- replace-with-stream-guest -->
-    <h2>Latest Posts</h2>
-    <ul role="list" class="link-card-grid">
-      {
-        frontPagePosts.map((post) => (
-          <Card
-            href={`/blog/${post.slug}`}
-            title={post.data.title}
-            body={post.data.excerpt}
-          />
-        ))
-      }
-    </ul>
-    <a href="/blog">See all posts</a>
+  <main id="main-content" tabindex="-1">
+    <Intro
+      heading="Well, hello there!"
+      summary="My name is Nick Taylor. I am a Staff Software Engineer focusing on front-end technologies and tooling with a growing interest in serverless and edge computing."
+    />
+    <section class="post-list pad-top-700">
+      <div class="inner-wrapper sf-flow">
+        <!-- replace-with-stream-guest -->
+      </div>
+    </section>
+    <PostList title="Latest Posts" posts={frontPagePosts} />
   </main>
 </Layout>
-
-<style>
-  main {
-    margin: auto;
-    padding: 1.5rem;
-    max-width: 60ch;
-  }
-
-  h1 {
-    font-size: 3rem;
-    font-weight: 800;
-    margin: 0;
-  }
-
-  .text-gradient {
-    background-image: var(--accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 400%;
-    background-position: 0%;
-  }
-
-  .instructions {
-    line-height: 1.6;
-    margin: 1rem 0;
-    border: 1px solid rgba(var(--accent), 25%);
-    background-color: white;
-    padding: 1rem;
-    border-radius: 0.4rem;
-  }
-
-  .instructions code {
-    font-size: 0.875em;
-    font-weight: bold;
-    background: rgba(var(--accent), 12%);
-    color: rgb(var(--accent));
-    border-radius: 4px;
-    padding: 0.3em 0.45em;
-  }
-
-  .instructions strong {
-    color: rgb(var(--accent));
-  }
-
-  .link-card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-    gap: 1rem;
-    padding: 0;
-  }
-</style>

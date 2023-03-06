@@ -1,0 +1,29 @@
+---
+export interface Props {
+  heading: string;
+  summary?: string;
+}
+
+const { heading, summary } = Astro.props;
+---
+
+<header class="intro pad-top-900 pad-bottom-max">
+  <div class="inner-wrapper sf-flow">
+    <h1
+      class="intro__heading{{ ' intro__heading--compact' if page.url === '/' }} text-800 md:text-900 leading-tight p-name ]"
+    >
+      {heading}
+    </h1>
+    <div class="box-flex gap-base flex-wrap">
+      <!-- TODO: boostLink title, page.fileSlug, page.url, canonicalUrl -->
+    </div>
+    {
+      summary && (
+        <div
+          class="intro__summary sf-flow leading-mid measure-short"
+          set:html={summary}
+        />
+      )
+    }
+  </div>
+</header>
