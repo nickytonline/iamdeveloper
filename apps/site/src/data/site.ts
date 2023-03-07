@@ -1,0 +1,16 @@
+export const site = {
+  showThemeCredit: true,
+  name: 'Just Some Dev',
+  shortDesc: "Welcome to Nick Taylor's personal website.",
+  authorEmail: 'nick@iamdeveloper.com',
+  twitterHandle: '@nickytonline',
+  mastodonHandle: '@nickytonline@toot.cafe',
+  authorName: 'Nick Taylor',
+  enableThirdPartyComments: false,
+  maxPostsPerPage: 5,
+  paymentPointer: '$ilp.uphold.com/MZMhAWA7bkGa',
+  faviconPath: '/images/favicon.png',
+  googleAnalyticsId: 'UA-55732414-1',
+  newsletterName: 'Yet Another Newsletter LOL',
+  newsletterRss: 'https://buttondown.email/nickytonline/rss',
+} as const;

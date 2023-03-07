@@ -1,15 +1,26 @@
 ---
 import type { NavItem } from '../data/navigationItems';
-import { socials } from '../data/socials';
+import type { SocialLink } from '../data/socials';
+import { site } from '../data/site';
 import MainNav from './MainNav.astro';
 
 export interface Props {
   navItems: NavItem[];
+  socials: SocialLink[];
 }
 
-const { navItems } = Astro.props as Props;
+const { navItems, socials } = Astro.props as Props;
 ---
 
-<header>
-  <MainNav navItems={navItems} socials={socials} />
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header role="banner" class="site-head pad-top-700 pad-bottom-700">
+  <div class="wrapper">
+    <a href="/" class="site-head__site-name leading-tight">
+      <span class="visually-hidden">{site.name} -</span>
+      <span class="[ site-head__site-name ] [ text-600 ]" aria-hidden="true"
+        >{site.name}</span
+      >
+    </a>
+    <MainNav navItems={navItems} socials={socials} />
+  </div>
 </header>

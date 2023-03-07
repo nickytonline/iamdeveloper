@@ -1,9 +1,10 @@
 ---
 import MainFooter from '../components/MainFooter.astro';
-import MainNav from '../components/MainNav.astro';
+import MainHeader from '../components/MainHeader.astro';
 import { navItems } from '../data/navigationItems';
 import { socials } from '../data/socials';
 import '../styles/global.scss';
+import { site as siteInfo } from '../data/site';
 
 export interface Props {
   title: string;
@@ -23,7 +24,7 @@ const { site } = Astro;
     <link
       rel="alternate"
       type="application/rss+xml"
-      title={`Just some dev – ${title}`}
+      title={`${siteInfo.name} – ${title}`}
       href={`${site}/rss.xml`}
     />
     <link rel="icon" href="/favicon.svg" type="image/png" />
@@ -38,9 +39,7 @@ const { site } = Astro;
     </script>
   </head>
   <body>
-    <header>
-      <MainNav navItems={navItems} socials={socials} />
-    </header>
+    <MainHeader navItems={navItems} socials={socials} />
     <slot />
     <MainFooter />
     <!-- TODO: script type="module" src="/js/components/theme-toggle.js" async="async" defer="defer"></! -->
