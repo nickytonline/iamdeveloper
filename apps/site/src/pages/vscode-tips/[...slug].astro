@@ -1,37 +1,27 @@
 ---
 import { CollectionEntry, getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Intro from '../../components/Intro.astro';
+import Post from '../../layouts/Post.astro';
+
+export interface Props {
+  tip: CollectionEntry<'vscodetips'>;
+}
 
 export async function getStaticPaths() {
-  const blogEntries = await getCollection('vscodetips');
+  const vscodeTips = await getCollection('vscodetips');
 
-  return blogEntries.map((entry) => ({
-    params: { slug: entry.slug },
-    props: { entry },
+  return vscodeTips.map((tip) => ({
+    params: { slug: tip.slug },
+    props: { tip },
   }));
 }
 
 // I shouldn't need to explicity type entry. Look into this.
-const entry: CollectionEntry<'blog'> = Astro.props.entry;
-const {
-  data: { title, date, tags },
-} = entry;
-const { Content } = await entry.render();
+const { tip } = Astro.props;
+const title = 'VS Code Tips';
 ---
 
-<article>
-  <h1>{title}</h1>
-  <date datetime={date}>{new Date(date).toDateString()}</date>
-  <Content />
-
-  <nav aria-label="Tags for blog post">
-    <ul>
-      {
-        tags.map((tag) => (
-          <li>
-            <a href={`/tags/${tag}`}>{tag}</a>
-          </li>
-        ))
-      }
-    </ul>
-  </nav>
-</article>
+<Layout title={title}>
+  <Post post={tip} />
+</Layout>

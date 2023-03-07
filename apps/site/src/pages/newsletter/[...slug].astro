@@ -1,37 +1,26 @@
 ---
 import { CollectionEntry, getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Post from '../../layouts/Post.astro';
+import Intro from '../../components/Intro.astro';
+
+export interface Props {
+  issue: CollectionEntry<'newsletter'>;
+}
 
 export async function getStaticPaths() {
-  const blogEntries = await getCollection('newsletter');
+  const newsIssues = await getCollection('newsletter');
 
-  return blogEntries.map((entry) => ({
-    params: { slug: entry.slug },
-    props: { entry },
+  return newsIssues.map((issue) => ({
+    params: { slug: issue.slug },
+    props: { issue },
   }));
 }
 
 // I shouldn't need to explicity type entry. Look into this.
-const entry: CollectionEntry<'newsletter'> = Astro.props.entry;
-const {
-  data: { title, date, tags },
-} = entry;
-const { Content } = await entry.render();
+const { issue } = Astro.props;
 ---
 
-<article>
-  <h1>{title}</h1>
-  <date datetime={date}>{new Date(date).toDateString()}</date>
-  <Content />
-
-  <nav aria-label="Tags for newsletter issue">
-    <ul>
-      {
-        tags.map((tag) => (
-          <li>
-            <a href={`/tags/${tag}`}>{tag}</a>
-          </li>
-        ))
-      }
-    </ul>
-  </nav>
-</article>
+<Layout title={issue.data.title}>
+  <Post post={issue} />
+</Layout>
