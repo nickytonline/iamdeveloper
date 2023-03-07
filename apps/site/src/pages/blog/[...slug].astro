@@ -3,19 +3,22 @@ import { CollectionEntry, getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Post from '../../layouts/Post.astro';
 
+export interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
 export async function getStaticPaths() {
   const blogEntries = await getCollection('blog');
 
-  return blogEntries.map((entry) => ({
-    params: { slug: entry.slug },
-    props: { entry },
+  return blogEntries.map((post) => ({
+    params: { slug: post.slug },
+    props: { entry: post },
   }));
 }
 
-// I shouldn't need to explicity type entry. Look into this.
-const entry: CollectionEntry<'blog'> = Astro.props.entry;
+const { post } = Astro.props;
 ---
 
-<Layout title={entry.data.title}>
-  <Post post={entry} />
+<Layout title={post.data.title}>
+  <Post post={post} />
 </Layout>
