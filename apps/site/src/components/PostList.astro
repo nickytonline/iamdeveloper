@@ -2,15 +2,38 @@
 import type { CollectionEntry } from 'astro:content';
 import DateTime from './DateTime.astro';
 
-export interface Props {
-  title: string;
-  posts:
-    | CollectionEntry<'blog'>[]
-    | CollectionEntry<'vscodetips'>[]
-    | CollectionEntry<'newsletter'>[];
+export type Props = { title: string } & (
+  | {
+      posts: CollectionEntry<'blog'>[];
+      postType: 'blog';
+    }
+  | {
+      posts: CollectionEntry<'vscodetips'>[];
+      postType: 'vscodetips';
+    }
+  | {
+      posts: CollectionEntry<'newsletter'>[];
+      postType: 'newsletter';
+    }
+);
+
+type Template = typeof Astro.props.postType;
+
+function getUrl(template: Template, slug: string) {
+  switch (template) {
+    case 'blog':
+      return `/blog/${slug}`;
+    case 'vscodetips':
+      return `/vscode-tips/${slug}`;
+    case 'newsletter':
+      return `/newsletter/${slug}`;
+    default:
+      throw new Error(`Unknown template: ${template}`);
+  }
 }
 
-const { title, posts } = Astro.props;
+Astro.props;
+const { title, posts, postType } = Astro.props;
 ---
 
 <section class="post-list pad-top-700 gap-bottom-900">
@@ -23,7 +46,7 @@ const { title, posts } = Astro.props;
             <li class="post-list__item">
               <h3 class="font-base leading-tight text-600 weight-mid">
                 <a
-                  href={`/blog/${item.slug}`}
+                  href={getUrl(postType, item.slug)}
                   class="post-list__link"
                   rel="bookmark"
                 >

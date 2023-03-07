@@ -1,14 +1,16 @@
 ---
+import Intro from '../../components/Intro.astro';
 import PostList from '../../components/PostList.astro';
 import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
 // Maybe there's a better way in Astro to sort the posts by date?
-const frontPagePosts = (await getCollection('blog')).sort(
+const blogPosts = (await getCollection('blog')).sort(
   (post1, post2) => Date.parse(post2.data.date) - Date.parse(post1.data.date)
 );
 ---
 
 <Layout title="Posts Archive">
-  <PostList title="All posts" posts={frontPagePosts} />
+  <Intro heading="Posts Archive" />
+  <PostList title="All posts" posts={blogPosts} postType="blog" />
 </Layout>

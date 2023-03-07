@@ -24,6 +24,6 @@ const frontPagePosts = (await getCollection('blog'))
         <!-- replace-with-stream-guest -->
       </div>
     </section>
-    <PostList title="Latest Posts" posts={frontPagePosts} />
+    <PostList title="Latest Posts" posts={frontPagePosts} postType="blog" />
   </main>
 </Layout>
