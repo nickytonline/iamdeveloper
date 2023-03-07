@@ -4,11 +4,14 @@ import DateTime from '../components/DateTime.astro';
 import Intro from '../components/Intro.astro';
 
 export interface Props {
-  post: CollectionEntry<'blog'>;
+  post:
+    | CollectionEntry<'blog'>
+    | CollectionEntry<'vscodetips'>
+    | CollectionEntry<'newsletter'>;
 }
 const { post } = Astro.props;
 const {
-  data: { date, reading_time_minutes, title, tags },
+  data: { date, title, tags },
 } = post;
 const { Content } = await post.render();
 ---
@@ -41,24 +44,28 @@ const { Content } = await post.render();
             </span>
           )
         }
-        <span class="box-flex gap-100">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="feather feather-clock"
-          >
-            <circle cx="12" cy="12" r="10"></circle>
-            <polyline points="12 6 12 12 16 14"></polyline>
-          </svg>
-          {reading_time_minutes} minute read</span
-        >
+        {
+          'reading_time_minutes' in post.data && (
+            <span class="box-flex gap-100">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="feather feather-clock"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+              {post.data.reading_time_minutes} minute read
+            </span>
+          )
+        }
       </p>
     </Intro>
     <div
