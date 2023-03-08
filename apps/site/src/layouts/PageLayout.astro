@@ -12,8 +12,10 @@ const { title, summary } = Astro.props;
 ---
 
 <BaseLayout title={title}>
-  <Intro heading={title}>{summary}</Intro>
-  <PostBody>
-    <slot />
-  </PostBody>
+  <div class="post h-entry">
+    <Intro heading={title}>{summary}</Intro>
+    <PostBody>
+      <slot />
+    </PostBody>
+  </div>
 </BaseLayout>
