@@ -28,7 +28,7 @@ export const navItems = [
   },
   {
     text: 'Uses',
-    url: '/pages/uses',
+    url: '/uses',
   },
   {
     text: 'Thanks',
