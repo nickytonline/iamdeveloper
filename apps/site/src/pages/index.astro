@@ -1,8 +1,8 @@
 ---
 import Intro from '../components/Intro.astro';
 import PostList from '../components/PostList.astro';
-import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
 // Maybe there's a better way in Astro to sort the posts by date?
 const frontPagePosts = (await getCollection('blog'))
@@ -12,46 +12,42 @@ const frontPagePosts = (await getCollection('blog'))
   .slice(0, 4);
 ---
 
-<Layout title="Just Some Dev - Homepage">
-  <main id="main-content" tabindex="-1">
-    <Intro heading="Well, hello there!">
-      My name is Nick Taylor. I am a Staff Software Engineer focusing on
-      front-end technologies and tooling with a growing interest in serverless
-      and edge computing.
-    </Intro>
-    <section class="post-list pad-top-700">
-      <div class="inner-wrapper sf-flow">
-        <!-- replace-with-stream-guest -->
-      </div>
-    </section>
-    <PostList title="Latest Posts" posts={frontPagePosts} postType="blog" />
-    <hr />
-    <div class="inner-wrapper">
-      <footer class="[ pagination ] [ pad-bottom-900 ]">
-        <nav
-          class="[ pagination__nav ] [ box-flex space-between align-center ]"
-        >
-          <a
-            href="/blog"
-            class="leading-tight text-500 weight-mid box-inline-flex align-center pad-bottom-300"
-            data-direction="forwards"
-          >
-            <span>See all posts</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="1em"
-              height="1em"
-              viewBox="0 0 24 24"
-              focusable="false"
-              aria-hidden="true"
-              fill="currentColor"
-              ><path
-                d="M9.707 18.707l6-6a.999.999 0 0 0 0-1.414l-6-6a.999.999 0 1 0-1.414 1.414L13.586 12l-5.293 5.293a.999.999 0 1 0 1.414 1.414z"
-              ></path></svg
-            >
-          </a>
-        </nav>
-      </footer>
+<BaseLayout title="Homepage">
+  <Intro heading="Well, hello there!">
+    My name is Nick Taylor. I am a Staff Software Engineer focusing on front-end
+    technologies and tooling with a growing interest in serverless and edge
+    computing.
+  </Intro>
+  <section class="post-list pad-top-700">
+    <div class="inner-wrapper sf-flow">
+      <!-- replace-with-stream-guest -->
     </div>
-  </main>
-</Layout>
+  </section>
+  <PostList title="Latest Posts" posts={frontPagePosts} postType="blog" />
+  <hr />
+  <div class="inner-wrapper">
+    <footer class="[ pagination ] [ pad-bottom-900 ]">
+      <nav class="[ pagination__nav ] [ box-flex space-between align-center ]">
+        <a
+          href="/blog"
+          class="leading-tight text-500 weight-mid box-inline-flex align-center pad-bottom-300"
+          data-direction="forwards"
+        >
+          <span>See all posts</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="1em"
+            height="1em"
+            viewBox="0 0 24 24"
+            focusable="false"
+            aria-hidden="true"
+            fill="currentColor"
+            ><path
+              d="M9.707 18.707l6-6a.999.999 0 0 0 0-1.414l-6-6a.999.999 0 1 0-1.414 1.414L13.586 12l-5.293 5.293a.999.999 0 1 0 1.414 1.414z"
+            ></path></svg
+          >
+        </a>
+      </nav>
+    </footer>
+  </div>
+</BaseLayout>

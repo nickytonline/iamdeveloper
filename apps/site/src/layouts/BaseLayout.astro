@@ -40,7 +40,9 @@ const { site } = Astro;
   </head>
   <body>
     <MainHeader navItems={navItems} socials={socials} />
-    <slot />
+    <main id="main-content" tabindex="-1">
+      <slot />
+    </main>
     <MainFooter />
     <!-- TODO: script type="module" src="/js/components/theme-toggle.js" async="async" defer="defer"></! -->
     <script>

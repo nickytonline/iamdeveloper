@@ -1,8 +1,7 @@
 ---
-import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 import PostList from '../../components/PostList.astro';
-import Intro from '../../components/Intro.astro';
+import PageLayout from '../../layouts/PageLayout.astro';
 
 // Maybe there's a better way in Astro to sort the posts by date?
 const issues = (await getCollection('newsletter')).sort(
@@ -12,7 +11,6 @@ const issues = (await getCollection('newsletter')).sort(
 const title = 'Newsletter';
 ---
 
-<Layout title={title}>
-  <Intro heading={title} />
+<PageLayout title={title}>
   <PostList title="All issues" posts={issues} postType="newsletter" />
-</Layout>
+</PageLayout>

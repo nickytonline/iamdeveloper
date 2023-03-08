@@ -1,8 +1,7 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import PageLayout from '../../layouts/PageLayout.astro';
 import { getCollection } from 'astro:content';
 import PostList from '../../components/PostList.astro';
-import Intro from '../../components/Intro.astro';
 
 // Maybe there's a better way in Astro to sort the posts by date?
 const vscodeTips = (await getCollection('vscodetips')).sort(
@@ -11,7 +10,6 @@ const vscodeTips = (await getCollection('vscodetips')).sort(
 const title = 'VS Code Tips';
 ---
 
-<Layout title={title}>
-  <Intro heading={title} />
+<PageLayout title={title}>
   <PostList title="All Tips" posts={vscodeTips} postType="vscodetips" />
-</Layout>
+</PageLayout>
