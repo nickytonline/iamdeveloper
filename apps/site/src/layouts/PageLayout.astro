@@ -1,0 +1,19 @@
+---
+import Intro from '../components/Intro.astro';
+import PostBody from '../components/PostBody.astro';
+import Layout from './Layout.astro';
+
+export interface Props {
+  title: string;
+  summary?: string;
+}
+
+const { title, summary } = Astro.props;
+---
+
+<Layout title={title}>
+  <Intro heading={title}>{summary}</Intro>
+  <PostBody>
+    <slot />
+  </PostBody>
+</Layout>
