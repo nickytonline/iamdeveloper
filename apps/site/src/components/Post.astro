@@ -2,6 +2,7 @@
 import type { CollectionEntry } from 'astro:content';
 import DateTime from '../components/DateTime.astro';
 import Intro from '../components/Intro.astro';
+import PostBody from '../components/PostBody.astro';
 
 export interface Props {
   post:
@@ -68,11 +69,9 @@ const { Content } = await post.render();
         }
       </p>
     </Intro>
-    <div
-      class="post__body inner-wrapper leading-loose pad-top-900 pad-bottom-900 text-500 sf-flow e-content"
-    >
+    <PostBody>
       <Content />
-    </div>
+    </PostBody>
     {
       tags && (
         <footer class="[ post__footer ] [ pad-top-500 pad-bottom-500 ]">

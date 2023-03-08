@@ -1,8 +1,6 @@
 ---
 import { CollectionEntry, getCollection } from 'astro:content';
-import Layout from '../../layouts/Layout.astro';
-import Intro from '../../components/Intro.astro';
-import Post from '../../layouts/Post.astro';
+import PostLayout from '../../layouts/PostLayout.astro';
 
 export interface Props {
   tip: CollectionEntry<'vscodetips'>;
@@ -22,6 +20,4 @@ const { tip } = Astro.props;
 const title = 'VS Code Tips';
 ---
 
-<Layout title={title}>
-  <Post post={tip} />
-</Layout>
+<PostLayout post={tip} />

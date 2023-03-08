@@ -1,8 +1,6 @@
 ---
 import { CollectionEntry, getCollection } from 'astro:content';
-import Layout from '../../layouts/Layout.astro';
-import Post from '../../layouts/Post.astro';
-import Intro from '../../components/Intro.astro';
+import PostLayout from '../../layouts/PostLayout.astro';
 
 export interface Props {
   issue: CollectionEntry<'newsletter'>;
@@ -21,6 +19,4 @@ export async function getStaticPaths() {
 const { issue } = Astro.props;
 ---
 
-<Layout title={issue.data.title}>
-  <Post post={issue} />
-</Layout>
+<PostLayout post={issue} />
