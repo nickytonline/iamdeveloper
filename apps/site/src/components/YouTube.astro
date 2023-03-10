@@ -1,0 +1,56 @@
+---
+export interface Props {
+  urlOrVideoId: string;
+}
+
+async function getVideoTitle(videoId: string) {
+  const response = await fetch(
+    `https://www.youtube.com/oembed?url=http://www.youtube.com/watch?v%3D${videoId}&format=json`
+  );
+
+  if (response.status === 404) {
+    return undefined;
+  }
+
+  const { title } = await response.json();
+
+  return title;
+}
+
+const { urlOrVideoId } = Astro.props;
+
+let videoId;
+let time;
+
+if (urlOrVideoId.includes('https://')) {
+  [, videoId, time] = urlOrVideoId.match(/.+\?v=([^&]+)(?:&t=([^&]+)s)?/) ?? [];
+} else {
+  videoId = urlOrVideoId;
+}
+
+const timeQueryParameter = time ? `?start=${time}` : '';
+const url = `https://www.youtube.com/embed/${videoId}${timeQueryParameter}`;
+const title = await getVideoTitle(videoId);
+---
+
+{
+  title ? (
+    <div class="video-player">
+      <iframe
+        title={title}
+        loading="lazy"
+        src={url}
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen="allowFullScreen"
+        style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px"
+        width="560"
+        height="315"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      />
+    </div>
+  ) : (
+    <p>Video is no longer available</p>
+  )
+}
