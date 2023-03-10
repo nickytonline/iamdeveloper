@@ -1,13 +1,19 @@
 ---
 import PostList from '../../components/PostList.astro';
+import type { Props as PostListProps } from '../../components/PostList.astro';
 
 import { getCollection } from 'astro:content';
 import PageLayout from '../../layouts/PageLayout.astro';
+import type { Props } from './[...slug].astro';
 
 // Maybe there's a better way in Astro to sort the posts by date?
-const blogPosts = (await getCollection('blog')).sort(
-  (post1, post2) => Date.parse(post2.data.date) - Date.parse(post1.data.date)
-);
+const blogPosts = (await getCollection('blog'))
+  .map(({ slug, data: { date: rawDate, title } }) => {
+    return { slug, date: new Date(rawDate), title };
+  })
+  .sort((post1, post2) => post2.date.getTime() - post1.date.getTime());
+
+console.dir(blogPosts);
 ---
 
 <PageLayout title="Posts Archive">

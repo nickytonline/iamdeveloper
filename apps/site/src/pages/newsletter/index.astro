@@ -4,10 +4,11 @@ import PostList from '../../components/PostList.astro';
 import PageLayout from '../../layouts/PageLayout.astro';
 
 // Maybe there's a better way in Astro to sort the posts by date?
-const issues = (await getCollection('newsletter')).sort(
-  (issue1, issue2) =>
-    Date.parse(issue2.data.date) - Date.parse(issue1.data.date)
-);
+const issues = (await getCollection('newsletter'))
+  .map(({ slug, data: { date: rawDate, title } }) => {
+    return { slug, date: new Date(rawDate), title };
+  })
+  .sort((issue1, issue2) => issue2.date.getTime() - issue1.date.getTime());
 const title = 'Newsletter';
 ---
 

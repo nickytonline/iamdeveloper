@@ -6,9 +6,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 // Maybe there's a better way in Astro to sort the posts by date?
 const frontPagePosts = (await getCollection('blog'))
-  .sort(
-    (post1, post2) => Date.parse(post2.data.date) - Date.parse(post1.data.date)
-  )
+  .map(({ slug, data: { date: rawDate, title } }) => {
+    return { slug, date: new Date(rawDate), title };
+  })
+  .sort((post1, post2) => post2.date.getTime() - post1.date.getTime())
   .slice(0, 4);
 ---
 

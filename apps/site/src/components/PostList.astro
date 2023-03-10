@@ -2,37 +2,12 @@
 import type { CollectionEntry } from 'astro:content';
 import DateTime from './DateTime.astro';
 
-export type Props = { title: string } & (
-  | {
-      posts: CollectionEntry<'blog'>[];
-      postType: 'blog';
-    }
-  | {
-      posts: CollectionEntry<'vscodetips'>[];
-      postType: 'vscodetips';
-    }
-  | {
-      posts: CollectionEntry<'newsletter'>[];
-      postType: 'newsletter';
-    }
-);
-
-type Template = typeof Astro.props.postType;
-
-function getUrl(template: Template, slug: string) {
-  switch (template) {
-    case 'blog':
-      return `/blog/${slug}`;
-    case 'vscodetips':
-      return `/vscode-tips/${slug}`;
-    case 'newsletter':
-      return `/newsletter/${slug}`;
-    default:
-      throw new Error(`Unknown template: ${template}`);
-  }
+export interface Props {
+  title: string;
+  posts: Array<{ slug: string; title: string; date: Date }>;
+  postType: 'blog' | 'vscode-tips' | 'newsletter' | 'talk';
 }
 
-Astro.props;
 const { title, posts, postType } = Astro.props;
 ---
 
@@ -41,20 +16,20 @@ const { title, posts, postType } = Astro.props;
     <h2 class="post-list__heading text-700 md:text-800">{title}</h2>
     <ol class="post-list__items sf-flow pad-top-300" reversed>
       {
-        posts.map((item) => {
+        posts.map(({ slug, title, date }) => {
           return (
             <li class="post-list__item">
               <h3 class="font-base leading-tight text-600 weight-mid">
                 <a
-                  href={getUrl(postType, item.slug)}
+                  href={`/${postType}/${slug}`}
                   class="post-list__link"
                   rel="bookmark"
                 >
-                  {item.data.title}
+                  {title}
                 </a>
               </h3>
               <p class="text-500 gap-top-300 weight-mid">
-                <DateTime date={new Date(item.data.date)} />
+                <DateTime date={date} />
               </p>
             </li>
           );
