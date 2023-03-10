@@ -1,0 +1,20 @@
+---
+import { talks } from '../../data/talks';
+import type { Talk } from '../../data/talks';
+import TalkLayout from '../../layouts/TalkLayout.astro';
+
+export interface Props {
+  talk: Talk;
+}
+
+export async function getStaticPaths() {
+  return [...talks.entries()].map(([slug, talk]) => ({
+    params: { slug },
+    props: { talk },
+  }));
+}
+
+const { talk } = Astro.props;
+---
+
+<TalkLayout talk={talk} />

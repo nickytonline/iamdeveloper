@@ -1,0 +1,33 @@
+---
+import DateTime from '../../components/DateTime.astro';
+import { talks as rawTalks } from '../../data/talks';
+import PageLayout from '../../layouts/PageLayout.astro';
+
+const talks = [...rawTalks.entries()].sort(([, talk1], [, talk2]) => {
+  return talk2.date.getTime() - talk1.date.getTime();
+});
+---
+
+<PageLayout title="Talks">
+  <section class="post-list pad-top-700 gap-bottom-900">
+    <div class="inner-wrapper sf-flow">
+      <h2 class="post-list__heading text-700 md:text-800">Latest Talks</h2>
+      <ol class="post-list__items sf-flow pad-top-300" reversed>
+        {
+          talks.map(([slug, talk]) => {
+            return (
+              <li class="post-list__item">
+                <h3 class="font-base leading-tight text-600 weight-mid">
+                  <a href={`/talks/${slug}`}>{talk.title}</a>
+                </h3>
+                <p class="text-500 gap-top-300 weight-mid">
+                  <DateTime date={new Date(talk.date)} />
+                </p>
+              </li>
+            );
+          })
+        }
+      </ol>
+    </div>
+  </section>
+</PageLayout>

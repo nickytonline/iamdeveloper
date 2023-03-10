@@ -1,0 +1,23 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import DateTime from '../components/DateTime.astro';
+import Intro from '../components/Intro.astro';
+import PostBody from '../components/PostBody.astro';
+import type { Talk } from '../data/talks';
+
+export interface Props {
+  talk: Talk;
+}
+
+const {
+  title,
+  date,
+  video,
+  venue,
+  slideDeck,
+  sourceCode,
+  summary,
+  additionalLinks,
+  tags,
+} = Astro.props.talk;
+---

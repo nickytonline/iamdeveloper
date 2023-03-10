@@ -1,0 +1,17 @@
+---
+export interface Props {
+  url: string;
+}
+
+const { url } = Astro.props;
+---
+
+<div class="video-player">
+  <iframe
+    src={url}
+    width="560"
+    height="315"
+    frameborder="0"
+    allow="autoplay; fullscreen; picture-in-picture"
+    allowfullscreen></iframe>
+</div>
