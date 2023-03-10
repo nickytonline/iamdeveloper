@@ -4,12 +4,14 @@ import { getCollection } from 'astro:content';
 import PostList from '../../components/PostList.astro';
 
 // Maybe there's a better way in Astro to sort the posts by date?
-const vscodeTips = (await getCollection('vscodetips')).sort(
-  (post1, post2) => Date.parse(post2.data.date) - Date.parse(post1.data.date)
-);
+const vscodeTips = (await getCollection('vscodetips'))
+  .map(({ slug, data: { date: rawDate, title } }) => {
+    return { slug, date: new Date(rawDate), title };
+  })
+  .sort((post1, post2) => post2.date.getTime() - post1.date.getTime());
 const title = 'VS Code Tips';
 ---
 
 <PageLayout title={title}>
-  <PostList title="All Tips" posts={vscodeTips} postType="vscodetips" />
+  <PostList title="All Tips" posts={vscodeTips} postType="vscode-tips" />
 </PageLayout>
