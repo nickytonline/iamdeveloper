@@ -56,7 +56,11 @@ const {
     </Intro>
     <PostBody>
       <p>Venue: <a href={venue.url}>{venue.name}</a></p>
-      {video && video.type === 'youtube' && <YouTube url={video.url} />}
+      {
+        video && video.type === 'youtube' && (
+          <YouTube urlOrVideoId={video.url} />
+        )
+      }
       {video && video.type === 'vimeo' && <Vimeo url={video.url} />}
       <p>Links:</p>
       <ul>
