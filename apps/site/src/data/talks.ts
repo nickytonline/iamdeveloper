@@ -10,6 +10,7 @@ const rawTalks = [
     },
     venue: { name: 'ChicagoJS', url: 'https://chicagojs.org/' },
     slideDeck: 'https://iamdeveloper.com/ChicagoFresh',
+    summary: `Fresh is a web framework based on Web standards built to run on the edge anywhere you can run Deno. Fresh takes inspiration from existing frameworks to provide features like file-based routing, Islands architecture, server-side rendering and Typescript. Another compelling reason to consider Fresh is that there is no build step.`,
     sourceCode:
       'https://github.com/nickytonline/chicago-js-dec-2022-fresh-demo',
     tags: ['deno', 'typescript'],
@@ -28,9 +29,7 @@ const rawTalks = [
     },
     summary: `Joe Colantonio moderates this lively Q&A panel where Tiffany Le-Nguyen,
   Skyler Brungardt, Nick Taylor, and Dan Giordano share their thoughts on
-  upcoming tools and framework innovations at their respective companies. -
-  <a href="https://applitools.com/event/expert-panel-trending-tools-and-frameworks-whats-hype-and-whats-not/">Expert Panel: Trending Tools and Frameworks – What’s Hype and What’s
-  Not]</a>.`,
+  upcoming tools and framework innovations at their respective companies.`,
   },
   {
     title: 'Automate syndication and ownership of your content with Eleventy',
@@ -39,7 +38,11 @@ const rawTalks = [
       type: 'youtube',
       url: 'https://www.youtube.com/watch?v=Yy4eHUjLWAs',
     },
-    venue: { name: 'Eleventy Meetup', url: 'https://11tymeetup.dev/' },
+    summary: `<p>I use <a href="http://dev.to/">dev.to</a> as a headless CMS. We'll go through how I pull in my articles, transform and cache them, and how to sync links for Hashnode and dev.to with my own posts. We'll also touch on GitHub actions as well as deploying to Netlify.</p>`,
+    venue: {
+      name: 'Eleventy Meetup',
+      url: 'https://11tymeetup.dev/events/ep-9-automatic-syndication-and-wordle-on-the-edge/',
+    },
     slideDeck: 'https://www.iamdeveloper.com/11tyMeetupMay2022',
     additionalLinks: [
       {
@@ -56,6 +59,7 @@ const rawTalks = [
       name: 'Virtual Coffee Lunch & Learn',
       url: 'https://virtualcoffee.io',
     },
+    summary: `One of the primary skills you'll need as a developer is asking good questions. We'll talk about the process of working through a problem and how to ask questions. Because when we ask good questions, we're growing as developers, respecting the time of others, and putting in the work we need to do.`,
     video: {
       type: 'youtube',
       url: 'https://www.youtube.com/watch?v=DVqtr3iwkwQ',
@@ -71,14 +75,15 @@ const rawTalks = [
     title: `Tools for web developers: Live coding and debugging`,
     date: new Date('2022-02-10'),
     venue: {
-      name: 'Virtual Coffee Lunch & Learn',
-      url: 'https://virtualcoffee.io',
+      name: 'codementor',
+      url: 'https://www.codementor.io/events/tools-for-web-devs-dpqk2w3b1r',
     },
+    summary: `No matter how experienced you are as a developer, one thing that will give you superpowers throughout your career is knowing your tools. Whether it's shortcuts in your favorite editor, the right commands for git, or tools for debugging, they will give your early career a boost, and continue to help you grow and advance as a developer.`,
     video: {
       type: 'youtube',
       url: 'https://www.youtube.com/watch?v=k0nSJ1MtSao',
     },
-    SlideDeck: 'https://iamdeveloper.com/codementor2022',
+    slideDeck: 'https://iamdeveloper.com/codementor2022',
   },
   {
     title: 'AppWrite Hacktoberfest Kickoff',
@@ -87,6 +92,7 @@ const rawTalks = [
       name: 'AppWrite Hacktoberfest Kickoff',
       url: 'https://dev.to/appwrite/appwrites-hacktoberfest-21-journey-4n91',
     },
+    summary: `Nick talks about Forem and how you can contribte to the project during and after Hacktoberfest 2021.`,
     video: {
       type: 'youtube',
       url: 'https://www.youtube.com/watch?v=cyJAz-c1OWs&t=4183s',
@@ -100,6 +106,7 @@ const rawTalks = [
       type: 'youtube',
       url: 'https://www.youtube.com/watch?v=aDofyI6E2t4',
     },
+    summary: `We'll cover how to get set up and streaming with Twitch using OBS. We'll cover some basics like closed captioning, creating scenes, changing scenes, and having some fun with browser sources to add some interactivity to your stream. If you've been on the fence about whether or not to start streaming, this one's for you!`,
     venue: {
       name: 'Virtual Coffee Lunch & Learn',
       url: 'https://virtualcoffee.io',
@@ -120,6 +127,7 @@ const rawTalks = [
       type: 'youtube',
       url: 'https://www.youtube.com/watch?v=I9A0Pifn0Uw',
     },
+    summary: `Learn how to debug JavaScript in the front-end/back-end as well as how to use your browser to debug other issues.`,
     venue: {
       name: 'Virtual Coffee Lunch & Learn',
       url: 'https://virtualcoffee.io',
@@ -134,6 +142,7 @@ const rawTalks = [
       type: 'youtube',
       url: 'https://www.youtube.com/watch?v=ypsD-9qQzYg',
     },
+    summary: `Storybook is a tool for building out components and documenting a system of components. It allows you to build components in an isolated environment. This promotes good component practices as well as potentially faster development time as you do not need to rely on the application(s) that consume them.`,
     venue: {
       name: 'Collab Lab Meetup',
       url: 'https://www.meetup.com/tech-talks-by-the-collab-lab/events/276679138/',
@@ -147,11 +156,18 @@ const rawTalks = [
       type: 'youtube',
       url: 'https://www.youtube.com/watch?v=MMabY-Cm_V4&t=3010s',
     },
+    summary: `Virtual Coffee started as a once a week zoom chat in April 2020, and has grown into a community of devs at all stages of the journey, meeting, mentoring, hosting events, and most importantly, making friends. Our mission is to form community, allow room for growth and mentorship at all levels, and to provide a safe space for everyone interested in tech. Nick goes over conventional comments and how they can help you and your team.`,
     venue: {
       name: 'Virtual Coffee Lightning Talks',
       url: 'https://virtualcoffee.io',
     },
     slideDeck: 'https://iamdeveloper.com/lightning2020',
+    additionalLinks: [
+      {
+        title: 'Conventional Comments',
+        url: 'https://conventionalcomments.org',
+      },
+    ],
   },
   {
     title: 'Getting the Most out of Open Source',
@@ -160,6 +176,9 @@ const rawTalks = [
       type: 'youtube',
       url: 'https://www.youtube.com/watch?v=Tn3MBiWYeEI',
     },
+    summary: `Nick shares best practices, tips, and tools about how contributors and maintainers of all levels can have happy, productive, and meaningful interactions with the open source community.
+
+Contributing to open source should be fun and rewarding! Whether you are a beginner or seasoned open source enthusiast, you’ll come away from this talk refreshed and ready to contribute to or maintain an open source project.`,
     venue: {
       name: 'DigitalOcean Tech Talk',
       url: 'https://www.digitalocean.com/community/tech_talks/getting-the-most-out-of-open-source',
