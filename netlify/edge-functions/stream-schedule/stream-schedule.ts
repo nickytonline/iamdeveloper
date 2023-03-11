@@ -7,10 +7,6 @@ const AIRTABLE_STREAM_GUEST_BASE_ID = Deno.env.get(
   'AIRTABLE_STREAM_GUEST_BASE_ID'
 );
 
-if (!AIRTABLE_API_KEY || !AIRTABLE_STREAM_GUEST_BASE_ID) {
-  throw new Error('Missing required environment variables');
-}
-
 export default async (request: Request, context: Context) => {
   // Locale is the first language in the Accept-Language header or 'en-US' if not present
   const locale =
