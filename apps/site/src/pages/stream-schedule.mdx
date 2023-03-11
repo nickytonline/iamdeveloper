@@ -1,0 +1,11 @@
+import PageLayout from '../layouts/PageLayout.astro';
+
+<PageLayout title="Live Stream Schedule">
+  <nav aria-label="My channels for streaming">
+  <a href="https://twitch.tv/nickytonline">My Twitch channel</a> |{' '}
+  <a href="https://iamdeveloper.live">My YouTube channel</a>
+</nav>
+
+<Fragment set:html="<!-- replace-with-schedule -->" />
+
+</PageLayout>
