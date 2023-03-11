@@ -53,11 +53,11 @@ const rawTalks = [
     ],
   },
   {
-    title: `Virtual Coffee Lunch & Learn: Asking Coding Questions`,
+    title: `Asking Coding Questions`,
     date: new Date('2022-05-27'),
     venue: {
       name: 'Virtual Coffee Lunch & Learn',
-      url: 'https://virtualcoffee.io',
+      url: 'https://www.youtube.com/playlist?list=PLh9uT23TA65idCyc_orC85RefgY_-fKsG',
     },
     summary: `One of the primary skills you'll need as a developer is asking good questions. We'll talk about the process of working through a problem and how to ask questions. Because when we ask good questions, we're growing as developers, respecting the time of others, and putting in the work we need to do.`,
     video: {
@@ -109,7 +109,7 @@ const rawTalks = [
     summary: `We'll cover how to get set up and streaming with Twitch using OBS. We'll cover some basics like closed captioning, creating scenes, changing scenes, and having some fun with browser sources to add some interactivity to your stream. If you've been on the fence about whether or not to start streaming, this one's for you!`,
     venue: {
       name: 'Virtual Coffee Lunch & Learn',
-      url: 'https://virtualcoffee.io',
+      url: 'https://www.youtube.com/playlist?list=PLh9uT23TA65idCyc_orC85RefgY_-fKsG',
     },
     slideDeck: 'https://iamdeveloper.com/stream2021',
     additionalLinks: [
@@ -130,7 +130,7 @@ const rawTalks = [
     summary: `Learn how to debug JavaScript in the front-end/back-end as well as how to use your browser to debug other issues.`,
     venue: {
       name: 'Virtual Coffee Lunch & Learn',
-      url: 'https://virtualcoffee.io',
+      url: 'https://www.youtube.com/playlist?list=PLh9uT23TA65idCyc_orC85RefgY_-fKsG',
     },
     slideDeck: 'https://iamdeveloper.com/debug2021',
   },
