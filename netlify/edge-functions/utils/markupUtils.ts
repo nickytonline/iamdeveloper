@@ -253,6 +253,8 @@ export function getLatestGuestMarkup({
     <h3 class="font-base leading-tight text-600 weight-mid">
       <a href="/stream-schedule/#${headingId}" class="post-list__link" rel="bookmark">${streamTitle}</a>
     </h3>
-    <time datetime="${date}">${guestDate}</time>
+    <p class="text-500 gap-top-300 weight-mid">
+      <time datetime="${date}">${guestDate}</time>
+    </p>
     `;
 }
