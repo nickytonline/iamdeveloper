@@ -55,13 +55,14 @@ const {
       </p>
     </Intro>
     <PostBody>
-      <p>Venue: <a href={venue.url}>{venue.name}</a></p>
       {
         video && video.type === 'youtube' && (
           <YouTube urlOrVideoId={video.url} />
         )
       }
       {video && video.type === 'vimeo' && <Vimeo url={video.url} />}
+      <p>Venue: <a href={venue.url}>{venue.name}</a></p>
+      {summary && <p>Summary: {summary}</p>}
       <p>Links:</p>
       <ul>
         {
