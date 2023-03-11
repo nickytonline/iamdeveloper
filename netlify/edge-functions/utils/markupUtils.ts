@@ -145,12 +145,25 @@ function getHeadingId(name: string, title: string) {
   return `${name} ${title}`.replace(/[^a-zA-Z0-9]+/g, '-').toLowerCase();
 }
 
-function getLocalizedDate(date: string, locale: string, timezone: string) {
-  return new Date(date).toLocaleString(locale, {
+export function getLocalizedDate({
+  date,
+  locale,
+  timezone,
+  showTime = false,
+}: {
+  date: string;
+  locale: string;
+  timezone: string;
+  showTime: boolean;
+}) {
+  const timeStyle = showTime ? 'long' : undefined;
+  const options: Intl.DateTimeFormatOptions = {
     timeZone: timezone,
     dateStyle: 'full',
-    timeStyle: 'long',
-  });
+    timeStyle,
+  };
+
+  return new Date(date).toLocaleString(locale, options);
 }
 
 export function getScheduleMarkup({
@@ -177,7 +190,12 @@ export function getScheduleMarkup({
         github,
         polywork,
       }) => {
-        const guestDate = getLocalizedDate(date, locale, timezone);
+        const guestDate = getLocalizedDate({
+          date,
+          locale,
+          timezone,
+          showTime: true,
+        });
         const headingId = getHeadingId(name, streamTitle);
         console.log(streamDescription);
         return `
@@ -223,7 +241,12 @@ export function getLatestGuestMarkup({
 
   const { date, streamTitle, name } = guest;
   const headingId = getHeadingId(name, streamTitle);
-  const guestDate = getLocalizedDate(date, locale, timezone);
+  const guestDate = getLocalizedDate({
+    date,
+    locale,
+    timezone,
+    showTime: true,
+  });
 
   return `
     <h2>Upcoming Live Stream</h2>
