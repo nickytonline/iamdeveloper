@@ -1,0 +1,18 @@
+---
+import PostList from '../../components/PostList.astro';
+import { talks as rawTalks } from '../../data/talks';
+import PageLayout from '../../layouts/PageLayout.astro';
+
+const talks = [...rawTalks.entries()]
+  .map((entry) => {
+    const [slug, { title, date }] = entry;
+    return { slug, title, date };
+  })
+  .sort((talk1, talk2) => {
+    return talk2.date.getTime() - talk1.date.getTime();
+  });
+---
+
+<PageLayout title="Talks">
+  <PostList title="Latest Talks" posts={talks} postType="talks" />
+</PageLayout>
