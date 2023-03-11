@@ -61,35 +61,33 @@ const {
         )
       }
       {video && video.type === 'vimeo' && <Vimeo url={video.url} />}
-      <p>Venue: <a href={venue.url}>{venue.name}</a></p>
-      {summary && <p>Summary: {summary}</p>}
-      <p>Links:</p>
-      <ul>
-        {
-          slideDeck && (
-            <li>
-              <a href={slideDeck}>slide deck</a>
-            </li>
-          )
-        }
-        {
-          sourceCode && (
-            <li>
-              <a href={sourceCode}>source code</a>
-            </li>
-          )
-        }
-        {
-          additionalLinks &&
-            additionalLinks.map((link) => {
-              return (
+      <p><span class="weight-bold">Venue:</span> <a href={venue.url}>{venue.name}</a></p>
+      {summary && <p set:html={`<span class="weight-bold">Summary:</span> ${summary}</p>`} />
+      {
+        (slideDeck || sourceCode || additionalLinks) && (
+            <p class="weight-bold">Links:</p>
+            <ul>
+              {slideDeck && (
                 <li>
-                  <a href={link.url}>{link.title}</a>
+                  <a href={slideDeck}>slide deck</a>
                 </li>
-              );
-            })
-        }
-      </ul>
+              )}
+              {sourceCode && (
+                <li>
+                  <a href={sourceCode}>source code</a>
+                </li>
+              )}
+              {additionalLinks &&
+                additionalLinks.map((link) => {
+                  return (
+                    <li>
+                      <a href={link.url}>{link.title}</a>
+                    </li>
+                  );
+                })}
+            </ul>
+        )
+      }
     </PostBody>
     {
       tags && (
