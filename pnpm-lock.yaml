@@ -13,7 +13,6 @@ specifiers:
   prettier: ^2.6.2
   rss-parser: ^3.12.0
   sass: ^1.58.3
-  stalfos: github:hankchizljaw/stalfos#c8971d22726326cfc04089b2da4d51eeb1ebb0eb
 
 dependencies:
   '@astrojs/mdx': 0.17.2_astro@2.0.17+rollup@3.18.0
@@ -24,13 +23,12 @@ dependencies:
   rss-parser: 3.12.0
 
 devDependencies:
-  '@nrwl/nx-cloud': 15.1.1
+  '@nrwl/nx-cloud': 15.2.1
   '@nrwl/workspace': 15.8.4_silln3pw57har7jydmecgzoypa
   astro: 2.0.17_sass@1.58.3
   nx: 15.8.4
   prettier: 2.8.4
   sass: 1.58.3
-  stalfos: github.com/hankchizljaw/stalfos/c8971d22726326cfc04089b2da4d51eeb1ebb0eb
 
 packages:
 
@@ -1739,8 +1737,8 @@ packages:
       - typescript
     dev: false
 
-  /@nrwl/nx-cloud/15.1.1:
-    resolution: {integrity: sha512-aIVb87PQpAjwdEaFksQ3rYgFq9MDaBG2KvYZcj/k+z2uWeWH84ha/opO37aCFLf5VXNiyJZGRb/+7vW7BFpNOw==}
+  /@nrwl/nx-cloud/15.2.1:
+    resolution: {integrity: sha512-T4ycGSx77TdvS0j6tKI/6zmh6YtsPHyfB2li+wDR+BW9wjGGqOTX1QvG3gf0k2enhA3dxLgYnmeDZoEUek6MOw==}
     hasBin: true
     dependencies:
       axios: 0.21.4
@@ -5404,11 +5402,3 @@ packages:
 
   /zwitch/2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
-
-  github.com/hankchizljaw/stalfos/c8971d22726326cfc04089b2da4d51eeb1ebb0eb:
-    resolution: {commit: c8971d22726326cfc04089b2da4d51eeb1ebb0eb, repo: git+ssh://git@github.com/hankchizljaw/stalfos.git, type: git}
-    name: stalfos
-    version: 2.0.0
-    dependencies:
-      sass: 1.58.3
-    dev: true

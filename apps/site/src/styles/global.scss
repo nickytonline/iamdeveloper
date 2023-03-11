@@ -1,8 +1,5 @@
 @import 'config';
-
-// TODO: Fix the node_modules reference to get it working from root of project's noed_modules
-// Pull in the stalfos lib
-@import '../../../../node_modules/stalfos/stalfos.scss';
+@import 'stalfos/stalfos.scss';
 
 // Local mixins
 @import 'mixins/dark-mode';

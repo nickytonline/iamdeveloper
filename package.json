@@ -20,7 +20,6 @@
     "astro": "^2.0.0",
     "nx": "15.8.4",
     "prettier": "^2.6.2",
-    "sass": "^1.58.3",
-    "stalfos": "github:hankchizljaw/stalfos#c8971d22726326cfc04089b2da4d51eeb1ebb0eb"
+    "sass": "^1.58.3"
   }
 }
