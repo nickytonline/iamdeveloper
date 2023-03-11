@@ -5,6 +5,12 @@ export interface Props {
 }
 
 const { date, showTime } = Astro.props;
+
+// Use a default locale and timezone of en-US/Eastern
+const localizedDate = date.toLocaleString('en-US', {
+  timeZone: 'America/New_York',
+  dateStyle: 'full',
+});
 ---
 
-<date datetime={date.toISOString()}>{date.toLocaleDateString()}</date>
+<date datetime={date.toISOString()}>{localizedDate}</date>
