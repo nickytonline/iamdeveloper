@@ -1,0 +1,2 @@
+# Handles path of pages on old web site, e.g. /pages/contact -> /contact
+/pages/*  /:splat
