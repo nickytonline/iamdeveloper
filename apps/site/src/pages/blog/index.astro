@@ -12,8 +12,6 @@ const blogPosts = (await getCollection('blog'))
     return { slug, date: new Date(rawDate), title };
   })
   .sort((post1, post2) => post2.date.getTime() - post1.date.getTime());
-
-console.dir(blogPosts);
 ---
 
 <PageLayout title="Posts Archive">

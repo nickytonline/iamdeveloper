@@ -197,7 +197,7 @@ export function getScheduleMarkup({
           showTime: true,
         });
         const headingId = getHeadingId(name, streamTitle);
-        console.log(streamDescription);
+
         return `
     <li class="post-list__item">
       <h2 id="${headingId}">${streamTitle} ${buildHeadingAnchor(headingId)}</h2>
