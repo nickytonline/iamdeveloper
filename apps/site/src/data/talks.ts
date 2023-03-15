@@ -2,6 +2,22 @@ export type Talk = (typeof rawTalks)[number];
 
 const rawTalks = [
   {
+    title: 'End to End Testing with Cypress',
+    date: new Date('2023-03-14'),
+    venue: {
+      name: 'The Collab Lab Tech Talks',
+      url: 'https://the-collab-lab.codes/tech-talks/',
+    },
+    video: {
+      type: 'youtube',
+      url: 'https://www.youtube.com/watch?v=clj-71r4gEI',
+    },
+    summary: `This talk will provide an introduction to the Cypress end-to-end (E2E) testing framework. We'll cover the benefits of E2E testing and then do a short demo using a Collab Lab cohort's project.`,
+    slideDeck: 'https://iamdeveloper.com/cypress2023',
+    sourceCode: 'https://github.com/nickytonline/tcl-meetup-cypress',
+    tags: ['cypress', 'testing'],
+  },
+  {
     title: 'Fresh: A New Full Stack Web Framework for Deno',
     date: new Date('2022-12-13'),
     video: {
