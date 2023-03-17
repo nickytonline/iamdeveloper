@@ -28,9 +28,7 @@ const { title, posts, postType } = Astro.props;
                   {title}
                 </a>
               </h3>
-              <p class="text-500 gap-top-300 weight-mid">
-                <DateTime date={date} />
-              </p>
+              <DateTime date={date} class="text-500 gap-top-300 weight-mid" />
             </li>
           );
         })

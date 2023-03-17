@@ -2,9 +2,10 @@
 export interface Props {
   date: Date;
   showTime?: boolean;
+  class?: string;
 }
 
-const { date, showTime } = Astro.props;
+const { date, showTime, class: className } = Astro.props;
 
 // Use a default locale and timezone of en-US/Eastern
 const localizedDate = date.toLocaleString('en-US', {
@@ -13,4 +14,4 @@ const localizedDate = date.toLocaleString('en-US', {
 });
 ---
 
-<date datetime={date.toISOString()}>{localizedDate}</date>
+<date datetime={date.toISOString()} class={className}>{localizedDate}</date>
