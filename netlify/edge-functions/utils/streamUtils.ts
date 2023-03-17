@@ -1,4 +1,4 @@
-import {StreamGuestInfo} from './StreamGuestInfo.ts';
+import { StreamGuestInfo } from './StreamGuestInfo.ts';
 
 const GUEST_FIELDS = [
   'Date',
@@ -6,6 +6,7 @@ const GUEST_FIELDS = [
   'Guest Title',
   'Stream Title',
   'Stream Description',
+  'YouTube Stream Link',
   'Twitter Username',
   'Twitch Handle',
   'GitHub Handle',
@@ -43,18 +44,19 @@ export async function getStreamSchedule({
 
   interface GuestRecord {
     createdTime: string;
-    fields: Record<typeof GUEST_FIELDS[number], string>;
+    fields: Record<(typeof GUEST_FIELDS)[number], string>;
   }
 
-  const {records} = (await response.json()) as {records: GuestRecord[]};
+  const { records } = (await response.json()) as { records: GuestRecord[] };
   // Can't use satifies. Functions bundler doesn't support it yet
-  const schedule: StreamGuestInfo[] = records.map(({fields}) => {
+  const schedule: StreamGuestInfo[] = records.map(({ fields }) => {
     const {
       Date: date,
       Name: name,
       'Guest Title': title,
       'Stream Title': streamTitle,
       'Stream Description': streamDescription,
+      'YouTube Stream Link': youtubeStreamLink,
       'Twitter Username': twitter,
       'Twitch Handle': twitch,
       'GitHub Handle': github,
@@ -69,6 +71,7 @@ export async function getStreamSchedule({
       title: title ?? '',
       streamTitle,
       streamDescription,
+      youtubeStreamLink,
       twitter,
       twitch,
       github,
@@ -81,8 +84,14 @@ export async function getStreamSchedule({
   return schedule;
 }
 
-export async function getLatestGuest({apiKey, baseId}: {apiKey: string; baseId: string}) {
-  const schedule = await getStreamSchedule({apiKey, baseId});
+export async function getLatestGuest({
+  apiKey,
+  baseId,
+}: {
+  apiKey: string;
+  baseId: string;
+}) {
+  const schedule = await getStreamSchedule({ apiKey, baseId });
 
   return schedule[0];
 }
