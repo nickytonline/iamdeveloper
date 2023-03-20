@@ -12,7 +12,7 @@ const rawTalks = [
       type: 'youtube',
       url: 'https://www.youtube.com/watch?v=clj-71r4gEI',
     },
-    summary: `This talk will provide an introduction to the Cypress end-to-end (E2E) testing framework. We'll cover the benefits of E2E testing and then do a short demo using a Collab Lab cohort's project.`,
+    summary: `This talk provides an introduction to the Cypress end-to-end (E2E) testing framework. We cover the benefits of E2E testing and then do a short demo using a Collab Lab cohort's project.`,
     slideDeck: 'https://iamdeveloper.com/cypress2023',
     sourceCode: 'https://github.com/nickytonline/tcl-meetup-cypress',
     tags: ['cypress', 'testing'],
@@ -54,7 +54,7 @@ const rawTalks = [
       type: 'youtube',
       url: 'https://www.youtube.com/watch?v=Yy4eHUjLWAs',
     },
-    summary: `<p>I use <a href="http://dev.to/">dev.to</a> as a headless CMS. We'll go through how I pull in my articles, transform and cache them, and how to sync links for Hashnode and dev.to with my own posts. We'll also touch on GitHub actions as well as deploying to Netlify.</p>`,
+    summary: `<p>I use <a href="http://dev.to/">dev.to</a> as a headless CMS. We go through how I pull in my articles, transform and cache them, and how to sync links for Hashnode and dev.to with my own posts. We also touch on GitHub actions as well as deploying to Netlify.</p>`,
     venue: {
       name: 'Eleventy Meetup',
       url: 'https://11tymeetup.dev/events/ep-9-automatic-syndication-and-wordle-on-the-edge/',
@@ -75,7 +75,7 @@ const rawTalks = [
       name: 'Virtual Coffee Lunch & Learn',
       url: 'https://www.youtube.com/playlist?list=PLh9uT23TA65idCyc_orC85RefgY_-fKsG',
     },
-    summary: `One of the primary skills you'll need as a developer is asking good questions. We'll talk about the process of working through a problem and how to ask questions. Because when we ask good questions, we're growing as developers, respecting the time of others, and putting in the work we need to do.`,
+    summary: `One of the primary skills you'll need as a developer is asking good questions. We talk about the process of working through a problem and how to ask questions. Because when we ask good questions, we're growing as developers, respecting the time of others, and putting in the work we need to do.`,
     video: {
       type: 'youtube',
       url: 'https://www.youtube.com/watch?v=DVqtr3iwkwQ',
@@ -108,7 +108,7 @@ const rawTalks = [
       name: 'AppWrite Hacktoberfest Kickoff',
       url: 'https://dev.to/appwrite/appwrites-hacktoberfest-21-journey-4n91',
     },
-    summary: `Nick talks about Forem and how you can contribte to the project during and after Hacktoberfest 2021.`,
+    summary: `Nick Tayklor talks about Forem and how you can contribute to the project during and after Hacktoberfest 2021.`,
     video: {
       type: 'youtube',
       url: 'https://www.youtube.com/watch?v=cyJAz-c1OWs&t=4183s',
@@ -122,7 +122,7 @@ const rawTalks = [
       type: 'youtube',
       url: 'https://www.youtube.com/watch?v=aDofyI6E2t4',
     },
-    summary: `We'll cover how to get set up and streaming with Twitch using OBS. We'll cover some basics like closed captioning, creating scenes, changing scenes, and having some fun with browser sources to add some interactivity to your stream. If you've been on the fence about whether or not to start streaming, this one's for you!`,
+    summary: `We cover how to get set up and streaming with Twitch using OBS. We cover some basics like live captioning, creating scenes, changing scenes, and having some fun with browser sources to add some interactivity to your stream. If you've been on the fence about whether or not to start streaming, this one's for you!`,
     venue: {
       name: 'Virtual Coffee Lunch & Learn',
       url: 'https://www.youtube.com/playlist?list=PLh9uT23TA65idCyc_orC85RefgY_-fKsG',
