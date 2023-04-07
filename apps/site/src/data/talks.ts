@@ -1,6 +1,25 @@
-export type Talk = (typeof rawTalks)[number];
+export type Talk = {
+  title: string;
+  date: Date;
+  venue: {
+    name: string;
+    url: string;
+  };
+  video: {
+    type: 'youtube' | 'vimeo';
+    url: string;
+  };
+  summary: string;
+  slideDeck?: string;
+  sourceCode?: string;
+  additionalLinks?: {
+    title: string;
+    url: string;
+  }[];
+  tags: string[];
+};
 
-const rawTalks = [
+const rawTalks: Talk[] = [
   {
     title: 'End to End Testing with Cypress',
     date: new Date('2023-03-14'),
