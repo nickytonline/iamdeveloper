@@ -46,6 +46,7 @@ const rawTalks = [
     summary: `Joe Colantonio moderates this lively Q&A panel where Tiffany Le-Nguyen,
   Skyler Brungardt, Nick Taylor, and Dan Giordano share their thoughts on
   upcoming tools and framework innovations at their respective companies.`,
+    tags: ['testing'],
   },
   {
     title: 'Automate syndication and ownership of your content with Eleventy',
@@ -67,6 +68,7 @@ const rawTalks = [
         url: 'https://www.iamdeveloper.com/posts/my-eleventy-meetup-talk-3b2p/',
       },
     ],
+    tag: ['eleventy', 'automation', 'github actions', 'netlify'],
   },
   {
     title: `Asking Coding Questions`,
@@ -86,6 +88,7 @@ const rawTalks = [
         url: 'https://dev.to/virtualcoffee/navigating-a-new-code-base-94d',
       },
     ],
+    tags: ['career'],
   },
   {
     title: `Tools for web developers: Live coding and debugging`,
@@ -100,6 +103,7 @@ const rawTalks = [
       url: 'https://www.youtube.com/watch?v=k0nSJ1MtSao',
     },
     slideDeck: 'https://iamdeveloper.com/codementor2022',
+    tags: ['devtools', 'career'],
   },
   {
     title: 'AppWrite Hacktoberfest Kickoff',
@@ -114,6 +118,7 @@ const rawTalks = [
       url: 'https://www.youtube.com/watch?v=cyJAz-c1OWs&t=4183s',
     },
     slideDeck: 'https://iamdeveloper.com/hacktoberfest2021',
+    tags: ['hacktoberfest', 'open source'],
   },
   {
     title: 'Getting Started with Streaming on Twitch',
@@ -134,6 +139,7 @@ const rawTalks = [
         url: 'https://www.iamdeveloper.com/blog/getting-started-with-streaming-on-twitch-4im7',
       },
     ],
+    tags: ['streaming', 'twitch', 'obs'],
   },
 
   {
@@ -149,6 +155,7 @@ const rawTalks = [
       url: 'https://www.youtube.com/playlist?list=PLh9uT23TA65idCyc_orC85RefgY_-fKsG',
     },
     slideDeck: 'https://iamdeveloper.com/debug2021',
+    tags: ['debugging', 'devtools', 'javascript'],
   },
 
   {
@@ -164,6 +171,7 @@ const rawTalks = [
       url: 'https://www.meetup.com/tech-talks-by-the-collab-lab/events/276679138/',
     },
     slideDeck: 'https://iamdeveloper.com/storybook2021',
+    tags: ['storybook', 'react', 'javascript'],
   },
   {
     title: 'Words Matter: Conventional Comments',
@@ -184,6 +192,7 @@ const rawTalks = [
         url: 'https://conventionalcomments.org',
       },
     ],
+    tags: ['career', 'communication'],
   },
   {
     title: 'Getting the Most out of Open Source',
@@ -200,6 +209,7 @@ Contributing to open source should be fun and rewarding! Whether you are a begin
       url: 'https://www.digitalocean.com/community/tech_talks/getting-the-most-out-of-open-source',
     },
     slideDeck: 'https://iamdeveloper.com/hacktoberfest2020',
+    tags: ['open source', 'hacktoberfest'],
   },
 ];
 
