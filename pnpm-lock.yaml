@@ -10,6 +10,7 @@ specifiers:
   '@nrwl/workspace': 15.8.4
   '@nxtensions/astro': 3.3.0
   astro: ^2.3.0
+  luxon: ^3.3.0
   nx: 15.8.4
   prettier: ^2.8.7
   rss-parser: ^3.12.0
@@ -23,6 +24,7 @@ dependencies:
   '@astrojs/sitemap': 1.1.0
   '@nxtensions/astro': 3.3.0_qryo6be6y5qtd2tgcfjfmprwlu
   astro: 2.3.0_sass@1.62.0
+  luxon: 3.3.0
   rss-parser: 3.12.0
   sass: 1.62.0
 
@@ -3815,6 +3817,11 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       yallist: 4.0.0
+
+  /luxon/3.3.0:
+    resolution: {integrity: sha512-An0UCfG/rSiqtAIiBPO0Y9/zAnHUZxAMiCpTd5h2smgsj7GGmcenvrvww2cqNA8/4A5ZrD1gJpHN2mIHZQF+Mg==}
+    engines: {node: '>=12'}
+    dev: false
 
   /magic-string/0.27.0:
     resolution: {integrity: sha512-8UnnX2PeRAPZuN12svgR9j7M1uWMovg/CEnIwIG0LFkXSJJe4PdfUGiTGl8V9bsBHFUtfVINcSyYxd7q+kx9fA==}
