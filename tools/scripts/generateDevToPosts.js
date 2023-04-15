@@ -234,7 +234,7 @@ async function createPostFile(post) {
         new Date(date).getFullYear().toString()
       )
     : POSTS_DIRECTORY;
-  const postFile = path.join(basePath, `${slug}.md`);
+  const postFile = path.join(basePath, `${slug}.mdoc`);
   await fs.writeFile(postFile, markdown);
 
   // Checking for a backtick before the Twitter embed so that we're not pulling in a code example of an embed.
