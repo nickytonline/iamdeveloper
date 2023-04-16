@@ -1,0 +1,11 @@
+---
+import {embedEmbed} from '../utilties/markdoc'
+
+export interface Props {
+  url: string;
+}
+
+const markup = embedEmbed(Astro.props.url)
+---
+
+<Fragment set:html={markup} />

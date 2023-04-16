@@ -24,7 +24,7 @@ If you are in charge of any repositories you’ve certainly had to deal with upd
 
 Dependabot has settings that allows Dependabot to automatically merge PRs it generates. This sounds great at first, but not ideal as just having unit tests pass (or no tests! 😱) and then merging does not install a lot of confidence. While on vacation, I thought to myself, just bite the bullet and add [Cypress](https://cypress.io) for end to end (e2e) testing to my [Continuous Integration](https://en.wikipedia.org/wiki/Continuous_integration)/[Continuous Delivery](https://en.wikipedia.org/wiki/Continuous_delivery) (CI/CD) pipeline. I use it at work and it’s a great tool. If you’re new to Cypress, I highly recommend checking out their [documentation](https://docs.cypress.io).
 
-{% twitter "1161457130530123776" /%}
+{% twitter tweetId="1161457130530123776" /%}
 
 If you’re not familiar with e2e testing, basically they are tests you write that act as if they were a user on your site. For example an e2e test can click on items and add them to a shopping cart. For Cypress, during the development phase, they have a great task runner that allows you to run e2e tests against Chrome (other browsers are on the way). It is an Electron app and gives you all the power of the developer tools you are used to in a browser. In the context of CI/CD, when Cypress runs, it executes tests against a headless browser (Chrome only for the time being).
 

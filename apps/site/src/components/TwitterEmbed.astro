@@ -1,0 +1,11 @@
+---
+import {embedEmbed} from '../utilties/markdoc'
+
+export interface Props {
+  tweetId: string;
+}
+
+const markup = embedEmbed(`https://twitter.com/anyone/status/${Astro.props.tweetId}`)
+---
+
+<Fragment set:html={markup} />

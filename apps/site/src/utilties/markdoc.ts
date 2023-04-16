@@ -180,44 +180,44 @@ export function socialImage(title: string, excerpt = '') {
 /**
  * Generates an embed based on the given URL.
  *
- * @param {string} rawUrl URL to embed.
+ * @param rawUrl URL to embed.
  *
- * @returns {string} Markup for the embed.
+ * @returns Markup for the embed.
  */
 export function embedEmbed(rawUrl: string) {
-  const url = new URL(rawUrl);
+  const urlToUse = new URL(rawUrl);
 
   // This is based off the generic dev.to embed liquid tag.
-  if (url.hostname.includes(`youtube.com`) || url.hostname.includes(`youtu.be`)) {
-    const videoId = url.searchParams.get('v') ?? url.pathname.substr(1);
+  if (urlToUse.hostname.includes(`youtube.com`) || urlToUse.hostname.includes(`youtu.be`)) {
+    const videoId = urlToUse.searchParams.get('v') ?? urlToUse.pathname.substr(1);
 
     return youtubeEmbed(videoId);
   }
 
-  if (url.hostname.includes(`github.com`)) {
-    return githubEmbed(url);
+  if (urlToUse.hostname.includes(`github.com`)) {
+    return githubEmbed(urlToUse);
   }
 
-  if (url.hostname.includes(`twitter.com`)) {
+  if (urlToUse.hostname.includes(`twitter.com`)) {
     const {tweetId} = rawUrl.match(
       /twitter\.com\/[^\/]+\/status\/(?<tweetId>[^\/]+)/
     ).groups;
     return twitterEmbed(tweetId);
   }
 
-  if (url.hostname.includes(`twitch.tv`)) {
-    const {videoId} = url.pathname.match(/\/videos\/(?<videoId>[^\/]+)/).groups;
+  if (urlToUse.hostname.includes(`twitch.tv`)) {
+    const {videoId} = urlToUse.pathname.match(/\/videos\/(?<videoId>[^\/]+)/).groups;
 
     return twitchEmbed(videoId);
   }
 
-  if (url.hostname.includes(`dev.to`)) {
+  if (urlToUse.hostname.includes(`dev.to`)) {
     const {username, slug} = rawUrl.match(
       /dev\.to\/(?<username>[^\/]+)\/(?<slug>[^\/]+)/
     ).groups;
 
     if (slug) {
-      return devLinkEmbed(url);
+      return devLinkEmbed(urlToUse);
     }
 
     if (username) {
@@ -225,20 +225,24 @@ export function embedEmbed(rawUrl: string) {
     }
   }
 
-  if (url.hostname.includes(`nickscuts.buzzsprout.com`)) {
-    const episodeId = url.pathname.split('/').pop().replace(/-.*/g, '');
+  if (urlToUse.hostname.includes(`nickscuts.buzzsprout.com`)) {
+    const episodeId = urlToUse.pathname.split('/').pop().replace(/-.*/g, '');
 
-    return buzzsproutEmbed(url.href, episodeId);
+    return buzzsproutEmbed(urlToUse.href, episodeId);
   }
 
-  if (url.hostname.includes('vimeo.com')) {
+  if (urlToUse.hostname.includes('vimeo.com')) {
     // e,f, https://vimeo.com/724340575
-    const videoId = url.pathname.split('/').pop();
+    const videoId = urlToUse.pathname.split('/').pop();
 
     return vimeoEmbed(videoId);
   }
 
-  throw new Error(`unsupported embed for ${url}`);
+  if (urlToUse.hostname.includes('codepen.io')) {
+    return codepenEmbed(rawUrl);
+  }
+
+  throw new Error(`unsupported embed for ${urlToUse}`);
 }
 
 /**
@@ -288,7 +292,13 @@ export async function twitterEmbed(tweetId: TweetId) {
  * @returns Markup for the Codepen embed.
  */
 export function codepenEmbed(url: string) {
-  return `<iframe height="300" style="width: 100%;" scrolling="no" title="Codepen from ${url}" src="${url}?default-tab=js%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true"></iframe>`;
+  // @ts-ignore
+  const {codepenId, codepenUser} = url.match(/https:\/\/codepen\.io\/(?<codepenUser>[^\/]+)\/pen\/(?<codepenId>[^\/]+)(\?.+)?/)?.groups;
+
+  return `<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="${codepenId}" data-user="${codepenUser}" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen at <a href="${url}">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>`;
 }
 
 /**

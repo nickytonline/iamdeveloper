@@ -1,0 +1,11 @@
+---
+import {embedEmbed} from '../utilties/markdoc'
+
+export interface Props {
+  videoId: string;
+}
+
+const markup = embedEmbed(`https://youtube.com/watch?v=${Astro.props.videoId}`)
+---
+
+<Fragment set:html={markup} />
