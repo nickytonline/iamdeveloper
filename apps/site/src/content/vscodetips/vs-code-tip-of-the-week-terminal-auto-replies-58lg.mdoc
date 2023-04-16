@@ -24,11 +24,11 @@ You can add a section to your user settings called `terminal.integrated.autoRepl
 I mostly use the integrated terminal, and one prompt I get occasionally that I never want to answer yes to is when it asks me to source the .env file of a project, so I've gone ahead and added the following to my configuration.
 
 ```bash
-{% raw %}
+{% raw /%}
 "terminal.integrated.autoReplies": {
   "dotenv: found '.env' file. Source it? ([Y]es/[n]o/[a]lways/n[e]ver)": "e\r"
 }
-{% endraw %}
+{% endraw /%}
 ```
 
 I just tried it as I'm writing this post and it works like a charm.

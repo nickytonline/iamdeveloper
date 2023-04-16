@@ -14,7 +14,7 @@
 }
 ---
 
-Did you know that you can use [hooks](https://beta.reactjs.org/learn#using-hooks) in [class components](https://reactjs.org/docs/react-component.html)? 
+Did you know that you can use [hooks](https://beta.reactjs.org/learn#using-hooks) in [class components](https://reactjs.org/docs/react-component.html)?
 
 OK, I'm lying, kind of. You can't use a hook directly in a class component, but you can use a hook in a wrapped function component with a [render prop](https://reactjs.org/docs/render-props.html) to achieve this.
 
@@ -25,7 +25,7 @@ The beauty of this pattern is that you can build new components as function comp
 Let's first create a hook.
 
 ```javascript
-{% raw %}
+{% raw /%}
 import { useEffect, useState } from "react";
 
 export function useDarkMode() {
@@ -48,13 +48,13 @@ export function useDarkMode() {
   }, [enabled]);
   return [enabled, setEnabledState];
 }
-{% endraw %}
+{% endraw /%}
 ```
 
 Now let's create a function component that has a render prop. Note that the prop does not literally need to be called `render`, but it tends to convey its purpose.
 
 ```jsx
-{% raw %}
+{% raw /%}
 // I wouldn't normally call a component something like this.
 // It's just to convey what it is doing for the purpose of the article
 const UseDarkModeHookWrapperComponent = ({ render }) => {
@@ -64,13 +64,13 @@ const UseDarkModeHookWrapperComponent = ({ render }) => {
   // setter for the custom hook
   return render(darkMode, setDarkMode);
 };
-{% endraw %}
+{% endraw /%}
 ```
 
 And now, let's use the wrapper component in a class component.
 
 ```jsx
-{% raw %}
+{% raw /%}
 export default class App extends Component {
   render() {
     return (
@@ -95,12 +95,12 @@ export default class App extends Component {
     );
   }
 }
-{% endraw %}
+{% endraw /%}
 ```
 
 And voilà! You're using your hook in a class component. Here's the complete application in action.
 
-{% codesandbox "recursing-haibt-uxgkke" %}
+{% codesandbox "recursing-haibt-uxgkke" /%}
 
 If you want to see a real-world example, look no further than the Forem codebase. Here's the [useMediaQuery hook](https://github.com/forem/forem/blob/main/app/javascript/shared/components/useMediaQuery.js), and here's the [wrapper component](https://github.com/forem/forem/blob/main/app/javascript/shared/components/MediaQuery.jsx). If you want to see it in action, it's called in the [ReadingList component](https://github.com/forem/forem/blob/main/app/javascript/readingList/readingList.jsx#L240-L277).
 

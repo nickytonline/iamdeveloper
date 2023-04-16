@@ -19,20 +19,20 @@ Maybe I should start a series called “Not just a Gist”, as I’m slowly conv
 
 I participated in this week’s [#devdiscuss about tooling](https://twitter.com/ThePracticalDev/status/950910573369229313), and I posted a few links to gists that are my setup on my Mac.
 
-{% twitter "950912727622529024" %}
+{% twitter "950912727622529024" /%}
 
 ## Tools you absolutely need on your Mac
 
 - The Homebrew duo. These are a must have to simplify installing most things on your Mac. As soon as these are installed, you may proceed.
-    - [Homebrew](https://brew.sh) - run `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"` from the command line to install it.
-    - [Homebrew Cask](https://caskroom.github.io) - run `brew tap caskroom/cask` from the command line to install it.
+  - [Homebrew](https://brew.sh) - run `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"` from the command line to install it.
+  - [Homebrew Cask](https://caskroom.github.io) - run `brew tap caskroom/cask` from the command line to install it.
 - [Spectacle](https://www.spectacleapp.com), the best application I’ve found for managing windows on macOS. This is especially useful for anyone coming from Windows who are used to this out of the box functionality. Run `brew cask install spectacle` from the command line to install it.
 - [Alfred](https://www.alfredapp.com) ([buy the Alfred Powerpack](https://www.alfredapp.com/powerpack/buy/) to get the full use of Alfred). Run `brew cask install alfred` from the command line to install it.
 
 ### Alfred Setup
 
 Alfred is so awesome, it deserves it’s own section in this post. It’s basically Spotlight on steroids and a bag of chips. It’s more than an application launcher. It allows you to create workflows for repetitive tasks you do everyday and there is also a huge array of existing [workflows](https://www.alfredapp.com/workflows/) for it available. I even decided to make some of my own, [nickytonline/alfred-workflows: Hopefully useful workflows for Alfred](https://github.com/nickytonline/alfred-workflows).
-{% twitter "950915346596327424" %}
+{% twitter "950915346596327424" /%}
 ![](https://www.iamdeveloper.com/images/posts/_i_3a5uy98t5v0dskpk36nu.png)
 
 I never used Alfred until this past summer. Why did I not use it sooner?!
@@ -90,9 +90,10 @@ You're all good to go. To test it out launch Alfred and in the search bar type `
 - [Fisherman](https://github.com/fisherman/fisherman), for themes and other utilities for the fish shell. Run `curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher` from the command line to install it.
 - edc/bass (to support bash utilities) - Assumes Fisherman is installed. Run `fisher edc/bass` from the command line to install it.
 - I use the git CLI with [git aliases](https://git-scm.com/book/en/v2/Git-Basics-Git-Aliases). Here’s my list of [git aliases](https://gitaliases.iamdeveloper.com).
-- fish shell aliases I use because I'm a lazy typer or just can't remember the real command. Feel free to run the script snippet below to add them to your 🐡 🐚 .**
+- fish shell aliases I use because I'm a lazy typer or just can't remember the real command. Feel free to run the script snippet below to add them to your 🐡 🐚 .\*\*
+
 ```bash
-{% raw %}
+{% raw /%}
 alias cg="eval \"git clone git@github.com:$argv.git\"" # Clones a gist, just pass in the gist ID
 funcsave cg
 
@@ -120,7 +121,7 @@ funcsave nib
 # ensure your npm is upgraded to the latest and greatest.
 alias hot="npx browser-sync start --server src/ --files \"src/*.html\" \"src/css/*.css\" \"src/js/*.js\""
 funcsave hot
-{% endraw %}
+{% endraw /%}
 ```
 
 ## Useful Utilities
@@ -147,4 +148,4 @@ That’s pretty much the round up of what I have on my machine at the moment. I 
 
 I’m always looking for new tools to make me more efficient, so feel free to chime in in the comments below.
 
-And here's the link to [my mac setup script](https://gist.github.com/nickytonline/729fc106a0146345c0b90f3356a41e4d#file-my-mac-setup-sh "my mac setup script") which I made a little while's after this blog post. It's not perfect, but it's helped me set up a few machines pretty easily.
+And here's the link to [my mac setup script](https://gist.github.com/nickytonline/729fc106a0146345c0b90f3356a41e4d#file-my-mac-setup-sh 'my mac setup script') which I made a little while's after this blog post. It's not perfect, but it's helped me set up a few machines pretty easily.

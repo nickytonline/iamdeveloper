@@ -17,7 +17,7 @@
 
 Near the end of September 2019, @ben posted this article.
 
-{% link "https://dev.to/devteam/you-can-now-generate-self-hostable-static-blogs-right-from-your-dev-content-via-stackbit-7a5" %}
+{% link "https://dev.to/devteam/you-can-now-generate-self-hostable-static-blogs-right-from-your-dev-content-via-stackbit-7a5" /%}
 
 I won't go into all the details as they are already mentioned in the article, but the TLDR is, by creating a site via Stackbit, you can use DEV as a headless CMS for your self-hosted site.
 
@@ -33,9 +33,9 @@ Since my previous site was a Gatsby site, I decided to generate a Gatsby site us
 
 ![Stackbit site creation step one. Select a theme](https://www.iamdeveloper.com/images/posts/_i_0hdv0ev9tlvkjno28mwo.png)
 
-And then within about a minute, I had my new site, built and deployed to Netlify at https://robust-petunia-478cc.netlify.com. 
+And then within about a minute, I had my new site, built and deployed to Netlify at https://robust-petunia-478cc.netlify.com.
 
-{% github "https://github.com/nickytonline/robust-petunia" %}
+{% github "https://github.com/nickytonline/robust-petunia" /%}
 
 My actual website is https://iamdeveloper.com, so at that point, I just configured my site in Netlify to point to iamdeveloper.com.
 
@@ -52,7 +52,6 @@ So why did I decide to do this if I already had a website running Gatsby with my
 1. I've changed my personalized site look for a theme template. This does not bother me that much though. I plan throughout the year to perhaps bring back the look I had once I understand all the moving parts in regards to the Gatsby/Stackbit integration.
 1. Currently, Stackbit does not copy over images, it references the same image that is hosted by DEV. This is not a deal-breaker right now, but it would be nice to have all the assets hosted by my site.
 1. Stackbit redeploys your site when draft posts are saved.
-
 
 I ran into some a11y issues which may have been related to the template I chose, but if you look at my commits, you can see where I fixed some things. As well, there were a bunch of Gatsby plugins that I added back from my old site that I required, e.g. sitemap, Google Analytics.
 
