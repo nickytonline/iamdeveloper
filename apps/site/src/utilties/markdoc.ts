@@ -6,7 +6,7 @@ import twitterEmbeds from '../data/twitterEmbeds.json' assert {type: 'json'};
 import {site} from '../data/site';
 import {promises as fs} from 'fs';
 
-const TWITTER_EMBEDS_FILE_PATH = path.join(__dirname, '../data/twitterEmbeds.json');
+const TWITTER_EMBEDS_FILE_PATH = path.join(import.meta.url, '../data/twitterEmbeds.json');
 
 type TwitterEmbeds = typeof twitterEmbeds
 type TweetId = keyof TwitterEmbeds;
