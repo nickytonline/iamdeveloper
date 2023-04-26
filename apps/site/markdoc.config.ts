@@ -11,25 +11,31 @@ export default defineMarkdocConfig({
       render: Embed,
       attributes: {
         url: { url: String },
-      }
+      },
     },
     twitter: {
       render: TwitterEmbed,
       attributes: {
         tweetId: { tweetId: String },
-      }
+      },
     },
     codepen: {
       render: Embed,
       attributes: {
         url: { url: String },
-      }
+      },
     },
     youtube: {
       render: YouTubeEmbed,
       attributes: {
         videoId: { videoId: String },
-      }
-    }
+      },
+    },
+    link: {
+      render: Embed,
+      attributes: {
+        url: { url: String },
+      },
+    },
   },
 });
