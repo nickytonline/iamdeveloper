@@ -149,7 +149,7 @@ packages:
   /@astrojs/rss@2.1.1:
     resolution: {integrity: sha512-3BpCqyCmVWfrGqyc1YXUQf7O3QjORYNmvxzeKvp0E+7KGiKj8ckRzwj90xGYjbKcb/BwKfzYgek4+BrZ1aqQtA==}
     dependencies:
-      fast-xml-parser: 4.1.3
+      fast-xml-parser: 4.3.3
       kleur: 4.1.5
     dev: false
 
@@ -3037,8 +3037,8 @@ packages:
       merge2: 1.4.1
       micromatch: 4.0.5
 
-  /fast-xml-parser@4.1.3:
-    resolution: {integrity: sha512-LsNDahCiCcJPe8NO7HijcnukHB24tKbfDDA5IILx9dmW3Frb52lhbeX6MPNUSvyGNfav2VTYpJ/OqkRoVLrh2Q==}
+  /fast-xml-parser@4.3.3:
+    resolution: {integrity: sha512-coV/D1MhrShMvU6D0I+VAK3umz6hUaxxhL0yp/9RjfiYUfAv14rDhGQL+PLForhMdr0wq3PiV07WtkkNjJjNHg==}
     hasBin: true
     dependencies:
       strnum: 1.0.5
